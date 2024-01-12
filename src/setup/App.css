@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+}
+
+@layer components {
+  body {
+  }
+  .main-wrapper {
+    @apply min-h-screen gap-4;
+  }
+  /* * ASIDE * */
+  .aside {
+    @apply max-md:absolute max-md:top-0 max-md:left-0 h-full max-md:px-4 max-md:py-6 lg:px-4 lg:py-2 lg:w-72;
+  }
+  .aside-nav-wrapper {
+    @apply h-full py-2 px-4 bg-white rounded-lg dark:backdrop-blur-xl dark:bg-white/30 shadow-lg;
+  }
+  .aside .aside-nav-head {
+    @apply flex max-lg:flex-col max-lg:justify-center max-lg:items-center lg:gap-2 lg:items-center text-slate-600 dark:text-white;
+  }
+  .aside-mini {
+    @apply h-screen max-md:absolute max-md:top-0 max-md:-translate-x-full lg:px-4 lg:py-2 lg:w-32;
+  }
+  .aside-mini .aside-nav-head {
+    @apply flex gap-2 items-center justify-center;
+  }
+  /* * ASIDE * */
+  .navbar {
+    @apply max-lg:px-4 py-2 w-full flex transition-all delay-75;
+  }
+  .main {
+  }
+  .footer {
+    @apply flex text-slate-500 dark:text-white/70 max-lg:px-4;
+  }
+}
+
+@layer utilities {
+  .main-wrapper {
+    display: grid;
+    grid-template-areas:
+      "aside header"
+      "aside main"
+      "aside foot";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr 50px;
+  }
+  @media only screen and (max-width: 390px) {
+    .main-wrapper {
+      display: grid;
+      grid-template-areas:
+        "header"
+        /* "aside", */
+        "main"
+        "foot";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+    }
+  }
+}

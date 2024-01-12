@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { IAuthState, ISession } from "../../abstraction/IAuth";
 import { LogInService } from "../../services/Auth";
+import { PREFIX_STORAGE } from "../../setup/constants";
 
 export const useLoginStore = create<IAuthState>()(
   persist(
@@ -35,6 +36,6 @@ export const useLoginStore = create<IAuthState>()(
         },
       };
     },
-    { name: "__CE::SESSION" }
+    { name: `${PREFIX_STORAGE}::SESSION` }
   )
 );
