@@ -1,15 +1,16 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { API_URL, ENDPOINT_LOGIN } from "../setup/constants";
+import { ISessionResponse } from "../abstraction/IAuth";
 
-export async function accountLogin({
+export async function LogInService({
   username,
   password,
 }: {
   username: string;
   password: string;
-}) {
+}): Promise<ISessionResponse> {
   try {
-    const { data } = await axios.post(
+    const response: AxiosResponse<ISessionResponse> = await axios.post(
       `${API_URL}${ENDPOINT_LOGIN}`,
       {
         userName: username,
@@ -20,14 +21,12 @@ export async function accountLogin({
       }
     );
 
-    return {
-      status: data.isSuccess,
-      errors: data.errors,
-      auth: {
-        token: data.token,
-        data: data.user,
-      },
-      ProtectedRoutes: data.routes,
-    };
-  } catch {}
+    // Access the data from the response
+    const result: ISessionResponse = response.data;
+    return result;
+  } catch (error) {
+    // Handle errors here
+    console.error("Error fetching user data:", error);
+    throw error; // Rethrow the error or handle it as needed
+  }
 }
