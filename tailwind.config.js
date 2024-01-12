@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}", // Tremor module
   ],
-  darkMode: "class",
+  darkMode: ["class", '[data-mode="dark"]'],
   theme: {
     transparent: "transparent",
     current: "currentColor",
