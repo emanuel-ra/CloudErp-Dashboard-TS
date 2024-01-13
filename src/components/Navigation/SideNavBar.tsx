@@ -1,15 +1,16 @@
+import { AuthorizeRutes } from "../../routes/AuthorizeRutes";
+import { OnlyAuthenticateRotes } from "../../routes/OnlyAuthenticateRoutes";
+import { useSideNavStores } from "../../stores/ui/sidenavbar";
+import { LogOutIcon } from "../Icons/LogOutIcon";
+import SideNavBarCollapseOption from "./SideNavBarCollapseOption";
+import { SideNavBarOption, SideNavBarOptionCallback } from "./SideNavBarOption";
+import { Divider } from "@tremor/react";
 
-import { RoutesType } from '../../abstraction/enums/routes';
-import { AuthorizeRutes } from '../../routes/AuthorizeRutes';
-import { useSideNavStores } from '../../stores/ui/sidenavbar';
-import SideNavBarCollapseOption from './SideNavBarCollapseOption';
-import { SideNavBarOption}  from './SideNavBarOption'
+export const SideNavBar = () => {
+  const mini = useSideNavStores((state) => state.mini);
 
-export const  SideNavBar = () => {
-  const mini = useSideNavStores(state => state.mini)
+  const SideNavRoutes = AuthorizeRutes;
 
-  const SideNavRoutes = AuthorizeRutes.filter(r => r.type === RoutesType.SIDE_NAV_BAR)
-  
   return (
     <aside
       className={`[grid-area:aside] ${
@@ -27,54 +28,70 @@ export const  SideNavBar = () => {
           </picture>
           {!mini && <h1 className="lg:block">Tera Dashboard</h1>}
         </div>
+
         <hr className="mt-2" />
 
-        <div className="py-2">
+        <div className="py-2 h-[92%] flex flex-col justify-between">
           <ul>
-            {
-              SideNavRoutes.map((route,index) => {
-                const children = route?.children
-                if(children?.length){
-                  return (
-                    <SideNavBarCollapseOption
-                      key={index}
-                      icon={route.icon}
-                      label={route.label}
-                      isMini={mini}
-                    >
-                      {children?.map((route2,index2) => (
-                        <SideNavBarOption
-                          key={index2}
-                          icon={route2.icon}
-                          label={route2.label}
-                          path={route2.path}
-                          isMini={mini}
-                        />
-                      ))}
-
-                      
-                    </SideNavBarCollapseOption>
-                  )
-                }else{
-                  return (
+            {SideNavRoutes.map((route, index) => {
+              const children = route?.children;
+              if (children?.length) {
+                return (
+                  <SideNavBarCollapseOption
+                    key={index}
+                    icon={route.icon}
+                    label={route.label}
+                    isMini={mini}
+                  >
+                    {children?.map((route2, index2) => (
                       <SideNavBarOption
-                        key={index}
-                        icon={route.icon}
-                        label={route.label}
-                        path={route.path}
+                        key={index2}
+                        icon={route2.icon}
+                        label={route2.label}
+                        path={route2.path}
                         isMini={mini}
                       />
-                    )
-                }
-              })
-               
-            }
-           
+                    ))}
+                  </SideNavBarCollapseOption>
+                );
+              } else {
+                return (
+                  <SideNavBarOption
+                    key={index}
+                    icon={route.icon}
+                    label={route.label}
+                    path={route.path || "/"}
+                    isMini={mini}
+                  />
+                );
+              }
+            })}
           </ul>
 
-          
+          <ul>
+            <Divider />
+            <SideNavBarOptionCallback
+              key={""}
+              icon={<LogOutIcon />}
+              label={"Logout"}
+              callback={() => {
+                alert("hi");
+              }}
+              isMini={mini}
+            />
+
+            {OnlyAuthenticateRotes.map((route, index) => (
+              <SideNavBarOption
+                key={index}
+                icon={route.icon}
+                label={route.label}
+                path={route.path}
+                isMini={mini}
+              />
+            ))}
+          </ul>
         </div>
       </div>
     </aside>
   );
-}
+};

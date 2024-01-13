@@ -3,13 +3,15 @@ import { ProtectedRoutes  } from "./ProtectedRoutes";
 import { PublicRoutes } from "./PublicRoutes";
 import { AuthorizeRutes } from "./AuthorizeRutes";
 import { ActionRoutes } from "./ActionRoutes";
+import { OnlyAuthenticateRotes } from "./OnlyAuthenticateRoutes";
 
 export const Routes = () =>{
     
     const routes = createBrowserRouter([
         ...PublicRoutes ,       
         ...authorized ,
-        ...ActionRoutes
+        ...ActionRoutes ,
+        
     ]);
 
     return <RouterProvider router={routes} />
@@ -19,6 +21,6 @@ const authorized = [
     {
         path:'/' ,
         element: <ProtectedRoutes /> ,
-        children: AuthorizeRutes ,
+        children: [...AuthorizeRutes,...OnlyAuthenticateRotes] ,
     }
 ]

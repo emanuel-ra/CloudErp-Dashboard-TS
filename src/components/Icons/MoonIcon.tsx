@@ -1,6 +1,5 @@
-
-export const MoonIcon = (props:any) => {
-  const { size=6, css='' } = props;
+export const MoonIcon = (props: any) => {
+  const { size = 6, css = "" } = props;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +8,7 @@ export const MoonIcon = (props:any) => {
       strokeWidth="1.5"
       stroke="currentColor"
       data-slot="icon"
-      className={`w-${size} h-${size} ${css} `} 
+      className={`w-${size} h-${size} ${css} `}
     >
       <path
         strokeLinecap="round"
@@ -18,4 +17,4 @@ export const MoonIcon = (props:any) => {
       />
     </svg>
   );
-}
+};

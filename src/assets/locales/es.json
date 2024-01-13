@@ -1,0 +1,12 @@
+{
+  "sideNavBar": {
+    "catalogues": "catálogos",
+    "products": "productos",
+    "categories": "categorías",
+    "brands": "marcas",
+    "settings": "configuraciones"
+  },
+  "settings": {
+    "account": "cuenta"
+  }
+}
