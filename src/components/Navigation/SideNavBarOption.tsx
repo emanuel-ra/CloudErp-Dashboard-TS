@@ -1,11 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface ISideNavBarOption {
     icon: React.ReactNode ,
     label: string ,
+    path:string ,
     isMini: boolean
 }
-export const SideNavBarOption = ({ icon, label, isMini }:ISideNavBarOption) => {
+export const SideNavBarOption = ({ icon, label,path, isMini }:ISideNavBarOption) => {
   return (
     <li
       className={`group cursor-pointer relative flex max-md:flex-col text-center items-center py-2 px-4 gap-2 w-full hover:rounded-lg hover:shadow-lg 
@@ -13,8 +15,8 @@ export const SideNavBarOption = ({ icon, label, isMini }:ISideNavBarOption) => {
       text-slate-600 hover:text-white
       dark:text-white dark:hover:bg-blue-800`}
     >
-      <a
-        href="#"
+      <Link
+        to={path}
         className="flex gap-2 items-center justify-center "
       >
         <i
@@ -25,7 +27,7 @@ export const SideNavBarOption = ({ icon, label, isMini }:ISideNavBarOption) => {
           {icon}
         </i>
         {!isMini && <span>{label}</span>}
-      </a>
+      </Link>
 
       {isMini && (
         <>          

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { ChevronDown } from "../Icons/Chevron";
 
 interface ISideNavBarCollapseOption {
-    icon: React.ReactNode ,
+    icon:  React.ReactNode ,
     label:string ,
     isMini:boolean ,
     children: React.ReactNode ,
 }
 
 function SideNavBarCollapseOption({ icon, label, isMini, children }:ISideNavBarCollapseOption) {
-
+ 
   const [open,setOpen] = useState(false)
 
   return (

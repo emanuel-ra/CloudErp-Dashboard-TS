@@ -4,7 +4,7 @@ export const PublicRoutes = [
     path: "/login",
     element: <LoginPage />,
   },
-  {
+  {    
     path: "/remember/me",
     element: "RememberMe",
   },

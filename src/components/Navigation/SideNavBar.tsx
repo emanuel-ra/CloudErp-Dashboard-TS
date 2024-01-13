@@ -1,4 +1,6 @@
 
+import React from 'react';
+import { AuthorizeRutes } from '../../routes/AuthorizeRutes';
 import { useSideNavStores } from '../../stores/ui/sidenavbar';
 import { HomeIcon } from '../Icons/HomeIcon';
 import SideNavBarCollapseOption from './SideNavBarCollapseOption';
@@ -6,7 +8,7 @@ import { SideNavBarOption}  from './SideNavBarOption'
 
 export const  SideNavBar = () => {
   const mini = useSideNavStores(state => state.mini)
-  
+
   return (
     <aside
       className={`[grid-area:aside] ${
@@ -28,53 +30,48 @@ export const  SideNavBar = () => {
 
         <div className="py-2">
           <ul>
-            <SideNavBarOption
-              icon={<HomeIcon size={5} />}
-              label={"Dashboard"}
-              isMini={mini}
-            />
-            <SideNavBarOption
-              icon={<HomeIcon size={5} />}
-              label={"Option one"}
-              isMini={mini}
-            />
-            <SideNavBarOption
-              icon={<HomeIcon size={5} />}
-              label={"Option two"}
-              isMini={mini}
-            />
-            <SideNavBarCollapseOption
-              icon={<HomeIcon size={5} />}
-              label={"Collapsed"}
-              isMini={mini}
-            >
-              <SideNavBarOption icon={"6"} label={"Option six"} isMini={mini} />
-            </SideNavBarCollapseOption>
-            <SideNavBarOption
-              icon={<HomeIcon size={5} />}
-              label={"Option three"}
-              isMini={mini}
-            />
-            <SideNavBarOption
-              icon={<HomeIcon size={5} />}
-              label={"Option four"}
-              isMini={mini}
-            />
+            {
+              AuthorizeRutes.map((route,index) => {
+                const children = route?.children
+                if(children?.length){
+                  return (
+                    <SideNavBarCollapseOption
+                      key={index}
+                      icon={route.icon}
+                      label={route.label}
+                      isMini={mini}
+                    >
+                      {children?.map((route2,index2) => (
+                        <SideNavBarOption
+                          key={index2}
+                          icon={route2.icon}
+                          label={route2.label}
+                          path={route2.path}
+                          isMini={mini}
+                        />
+                      ))}
+
+                      
+                    </SideNavBarCollapseOption>
+                  )
+                }else{
+                  return (
+                      <SideNavBarOption
+                        key={index}
+                        icon={route.icon}
+                        label={route.label}
+                        path={route.path}
+                        isMini={mini}
+                      />
+                    )
+                }
+              })
+               
+            }
+           
           </ul>
 
-          <ul>
-            <SideNavBarCollapseOption
-              icon={<HomeIcon size={5} />}
-              label={"Collapsed"}
-              isMini={mini}
-            >
-              <SideNavBarOption
-                icon={"5"}
-                label={"Option Five"}
-                isMini={mini}
-              />
-            </SideNavBarCollapseOption>
-          </ul>
+          
         </div>
       </div>
     </aside>
