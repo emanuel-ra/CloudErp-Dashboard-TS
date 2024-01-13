@@ -1,14 +1,15 @@
 
-import React from 'react';
+import { RoutesType } from '../../abstraction/enums/routes';
 import { AuthorizeRutes } from '../../routes/AuthorizeRutes';
 import { useSideNavStores } from '../../stores/ui/sidenavbar';
-import { HomeIcon } from '../Icons/HomeIcon';
 import SideNavBarCollapseOption from './SideNavBarCollapseOption';
 import { SideNavBarOption}  from './SideNavBarOption'
 
 export const  SideNavBar = () => {
   const mini = useSideNavStores(state => state.mini)
 
+  const SideNavRoutes = AuthorizeRutes.filter(r => r.type === RoutesType.SIDE_NAV_BAR)
+  
   return (
     <aside
       className={`[grid-area:aside] ${
@@ -31,7 +32,7 @@ export const  SideNavBar = () => {
         <div className="py-2">
           <ul>
             {
-              AuthorizeRutes.map((route,index) => {
+              SideNavRoutes.map((route,index) => {
                 const children = route?.children
                 if(children?.length){
                   return (

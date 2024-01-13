@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { API_URL, ENDPOINT_LOGIN } from "../setup/constants";
-import { ISessionResponse } from "../abstraction/IAuth";
+import { ISessionResponse } from "../abstraction/Interfazes/IAuth";
 
 export async function LogInService({
   username,

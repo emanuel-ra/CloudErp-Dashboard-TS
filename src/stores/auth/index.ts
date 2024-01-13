@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { IAuthState, ISession } from "../../abstraction/IAuth";
+import { IAuthState, ISession } from "../../abstraction/Interfazes/IAuth";
 import { LogInService } from "../../services/Auth";
 import { PREFIX_STORAGE } from "../../setup/constants";
 

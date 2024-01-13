@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { ITheme } from "../../abstraction/IUI";
+import { ITheme } from "../../abstraction/Interfazes/IUI";
 import { PREFIX_STORAGE } from "../../setup/constants";
 
 export const useThemeStore = create<ITheme>()(

@@ -7,7 +7,7 @@ interface ISideNavBarOption {
     path:string ,
     isMini: boolean
 }
-export const SideNavBarOption = ({ icon, label,path, isMini }:ISideNavBarOption) => {
+export const SideNavBarOption = ({ icon, label, path, isMini }:ISideNavBarOption) => {
   return (
     <li
       className={`group cursor-pointer relative flex max-md:flex-col text-center items-center py-2 px-4 gap-2 w-full hover:rounded-lg hover:shadow-lg 

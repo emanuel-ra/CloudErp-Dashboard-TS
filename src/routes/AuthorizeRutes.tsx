@@ -9,36 +9,35 @@ export const AuthorizeRutes = [
         icon:<TagIcon /> ,
         label:'Home' ,
         path: "/",
-        element: "HomePage",      
-    },
-    {
-        icon:<TagIcon /> ,
-        label:'Products' ,
-        path: "/products",
-        element: "ProductsPage",
+        element: "HomePage",        
+           
     },
     {
         icon:<HomeIcon size={5} /> ,
         label:'Catalogue' ,         
-        // element: <h1>Hello</h1>,
+                
         children:[
             {
                 icon:<TagIcon /> ,
                 label:'Products' ,
                 path: "/products",
                 element: <ProductsPage />,
+                
             },
+            
             {
                 icon:<TagIcon /> ,
                 label:'Categories' ,
                 path: "/catalogue/categories",
                 element: <CategoriesPage />,
+                
             },
             {
                 icon:<TagIcon /> ,
                 label:'Brands' ,
                 path: "/brand",
                 element: <BranchesPage />,
+                
             }
         ]
     }

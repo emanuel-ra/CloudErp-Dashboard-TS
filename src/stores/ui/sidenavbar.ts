@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { ISideNavBar } from "../../abstraction/IUI";
+import { ISideNavBar } from "../../abstraction/Interfazes/IUI";
 import { PREFIX_STORAGE } from "../../setup/constants";
 
 export const useSideNavStores = create<ISideNavBar>()(
