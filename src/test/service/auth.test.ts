@@ -1,5 +1,4 @@
 import { LogInService } from "../../services/Auth";
-
 /**
  * * VALID THAT THE LOGIN RESPONSE IS TRUE IF THE CREDENTIAL ARE RIGHT
  */
@@ -19,9 +18,9 @@ test("Auth::Failed::Credentials", async () => {
 });
 
 /**
- * * VALID THAT THE LOGIN RESPONSE IS TRUE IF THE CREDENTIAL ARE RIGHT
+ * * VALID THAT THE TOKES IS A STRING
  */
-test("Auth::Success::Credentials", async () => {
+test("Auth::Token::isString", async () => {
   const payload = { username: "emanuelra94", password: "123" };
   const result = await LogInService(payload);
   expect(typeof result.token).toBe("string");
