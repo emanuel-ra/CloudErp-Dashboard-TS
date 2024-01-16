@@ -1,7 +1,8 @@
+import { LoginPage } from "../pages/LoginPage";
 export const PublicRoutes = [
   {
     path: "/login",
-    element: "Login",
+    element: <LoginPage />,
   },
   {
     path: "/remember/me",

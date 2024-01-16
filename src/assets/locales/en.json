@@ -1,0 +1,24 @@
+{
+  "language": "Language",
+  "spanish": "Spanish",
+  "english": "English",
+  "sideNavBar": {
+    "home": "home",
+    "settings": "Settings",
+    "catalogues": "Catalogues",
+    "products": "Products",
+    "categories": "Categories",
+    "brands": "Brands",
+    "logout": "Logout"
+  },
+  "settings": {
+    "account": "Account",
+    "language": "Language"
+  },
+  "breadcrumb": {
+    "settings": "Settings",
+    "products": "Products",
+    "create": "Create",
+    "edit": "Edit"
+  }
+}
