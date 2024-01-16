@@ -26,7 +26,7 @@ export async function LogInService({
     return result;
   } catch (error) {
     // Handle errors here
-    console.error("Error fetching user data:", error);
+    //console.error("Error fetching user data:", error);
     throw error; // Rethrow the error or handle it as needed
   }
 }
