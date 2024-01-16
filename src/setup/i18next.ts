@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { locales } from "../assets/languages";
+import { useLanguageStore } from "../stores/language";
 
 //const langCodes = Object.keys(locales);
 const resources = Object.fromEntries(
@@ -8,9 +9,9 @@ const resources = Object.fromEntries(
 );
 
 i18n.use(initReactI18next).init({
-  fallbackLng: "es",
   debug: true,
   resources,
+  lng: "es",
 });
-
+//fallbackLng: "en",
 export default i18n;
