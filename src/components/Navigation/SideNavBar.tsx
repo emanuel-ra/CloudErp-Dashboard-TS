@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { AuthorizeRutes } from "../../routes/AuthorizeRutes";
 import { OnlyAuthenticateRotes } from "../../routes/OnlyAuthenticateRoutes";
 import { useSideNavStores } from "../../stores/ui/sidenavbar";
@@ -8,7 +9,7 @@ import { Divider } from "@tremor/react";
 
 export const SideNavBar = () => {
   const mini = useSideNavStores((state) => state.mini);
-
+  const { t } = useTranslation();
   const SideNavRoutes = AuthorizeRutes;
 
   return (
@@ -26,7 +27,7 @@ export const SideNavBar = () => {
               className="rounded-full"
             />
           </picture>
-          {!mini && <h1 className="lg:block">Tera Dashboard</h1>}
+          {!mini && <h1 className="lg:block">Dashboard</h1>}
         </div>
 
         <hr className="mt-2" />
@@ -40,7 +41,7 @@ export const SideNavBar = () => {
                   <SideNavBarCollapseOption
                     key={index}
                     icon={route.icon}
-                    label={route.label}
+                    label={t(route.label)}
                     isMini={mini}
                   >
                     {children?.map((route2, index2) => (
@@ -73,7 +74,7 @@ export const SideNavBar = () => {
             <SideNavBarOptionCallback
               key={""}
               icon={<LogOutIcon />}
-              label={"Logout"}
+              label={t("sideNavBar.logout")}
               callback={() => {
                 alert("hi");
               }}
@@ -84,7 +85,7 @@ export const SideNavBar = () => {
               <SideNavBarOption
                 key={index}
                 icon={route.icon}
-                label={route.label}
+                label={`${route.label}`}
                 path={route.path}
                 isMini={mini}
               />
