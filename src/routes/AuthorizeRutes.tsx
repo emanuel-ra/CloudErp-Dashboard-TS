@@ -1,8 +1,8 @@
 import { TagIcon } from "@heroicons/react/solid";
 import { HomeIcon } from "../components/Icons/HomeIcon";
 import { ProductsListPage } from "../pages/Products/ProductsListPage";
-import { BranchesPage } from "../pages/BranchesPage";
-import { CategoriesPage } from "../pages/CategoriesPage";
+import { BranchesPage } from "../pages/Branches/BranchesPage";
+import { CategoriesPage } from "../pages/Categories/CategoriesPage";
 
 export const AuthorizeRutes = [
   {
