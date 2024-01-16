@@ -1,12 +1,24 @@
 {
+  "language": "Lenguaje",
+  "spanish": "Español",
+  "english": "Ingles",
   "sideNavBar": {
-    "catalogues": "catálogos",
-    "products": "productos",
-    "categories": "categorías",
-    "brands": "marcas",
-    "settings": "configuraciones"
+    "home": "Inicio",
+    "catalogues": "Catálogos",
+    "products": "Productos",
+    "categories": "Categorías",
+    "brands": "Marcas",
+    "settings": "Configuraciones",
+    "logout": "Salir"
   },
   "settings": {
-    "account": "cuenta"
+    "account": "Cuenta",
+    "language": "Lenguaje"
+  },
+  "breadcrumb": {
+    "settings": "Configuraciones",
+    "products": "Productos",
+    "create": "Crear",
+    "edit": "Editar"
   }
 }
