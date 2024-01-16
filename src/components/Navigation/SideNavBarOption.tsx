@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface ISideNavBarOption {
@@ -19,14 +20,18 @@ export const SideNavBarOption = ({
   path,
   isMini,
 }: ISideNavBarOption) => {
+  const { t } = useTranslation();
   return (
     <li
-      className={`group cursor-pointer relative flex max-md:flex-col text-center items-center py-2 px-4 gap-2 w-full hover:rounded-lg hover:shadow-lg 
+      className={`group cursor-pointer relative flex max-md:flex-col text-center items-center py-0 px-0 gap-2 w-full hover:rounded-lg hover:shadow-lg 
       hover:bg-blue-700/80      
       text-slate-600 hover:text-white
       dark:text-white dark:hover:bg-blue-800`}
     >
-      <Link to={path} className="flex gap-2 items-center justify-center ">
+      <Link
+        to={path}
+        className="flex gap-2 items-center w-full h-full text-left py-2 px-4"
+      >
         <i
           className={`w-5 h-5 ${
             isMini && "text-center justify-center font-bold text-xl"
@@ -34,13 +39,13 @@ export const SideNavBarOption = ({
         >
           {icon}
         </i>
-        {!isMini && <span>{label}</span>}
+        {!isMini && <span>{t(`${label}`)}</span>}
       </Link>
 
       {isMini && (
         <>
-          <span className="absolute w-28 top-0 left-20 scale-0 rounded bg-gray-800 dark:group-hover:bg-white dark:group-hover:text-slate-800 p-2 text-xs text-white group-hover:scale-100 z-10">
-            {label}
+          <span className="absolute w-28 top-0 left-20 scale-0 rounded bg-gray-800 dark:group-hover:bg-white dark:group-hover:text-slate-800 p-2 text-xs text-white group-hover:scale-100 z-[100]">
+            {t(label)}
           </span>
         </>
       )}
@@ -56,9 +61,9 @@ export const SideNavBarOptionCallback = ({
 }: ISideNavBarOptionCallback) => {
   return (
     <li
-      className={`group cursor-pointer relative flex max-md:flex-col text-center items-center py-2 px-4 gap-2 w-full hover:rounded-lg hover:shadow-lg 
-      hover:bg-blue-700/80      
-      text-slate-600 hover:text-white
+      className={`relative group cursor-pointer flex max-md:flex-col text-center items-center py-2 px-4 gap-2 w-full z-50
+      text-slate-600
+      hover:rounded-lg hover:shadow-lg  hover:bg-blue-700/80 hover:text-white             
       dark:text-white dark:hover:bg-blue-800`}
     >
       <a
@@ -80,7 +85,7 @@ export const SideNavBarOptionCallback = ({
 
       {isMini && (
         <>
-          <span className="absolute w-28 top-0 left-20 scale-0 rounded bg-gray-800 dark:group-hover:bg-white dark:group-hover:text-slate-800 p-2 text-xs text-white group-hover:scale-100 z-10">
+          <span className="absolute w-28 top-0 left-20 scale-0 rounded bg-gray-800 dark:group-hover:bg-white dark:group-hover:text-slate-800 p-2 text-xs text-white group-hover:scale-100 z-50">
             {label}
           </span>
         </>
