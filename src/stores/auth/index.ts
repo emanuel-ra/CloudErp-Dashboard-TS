@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import { IAuthState, ISession } from "../../abstraction/Interfazes/IAuth";
 import { LogInService } from "../../services/Auth";
 import { PREFIX_STORAGE } from "../../setup/constants";
+import axios from "axios";
 
 export const useLoginStore = create<IAuthState>()(
   persist(
@@ -25,6 +26,9 @@ export const useLoginStore = create<IAuthState>()(
           };
 
           if (result.isSuccess) {
+            axios.defaults.headers.common[
+              "Authorization"
+            ] = `Bearer ${result.token}`;
             set({ session });
           } else {
             set({ errors: result.errors });
@@ -32,6 +36,7 @@ export const useLoginStore = create<IAuthState>()(
         },
         logOut: () => {
           const session: ISession = { token: "" };
+          axios.defaults.headers.common["Authorization"] = null;
           set({ session, errors: [] });
         },
       };

@@ -16,9 +16,22 @@
     "language": "Language"
   },
   "breadcrumb": {
+    "home": "Home",
+    "brand": "Brand",
+    "categories": "Categories",
     "settings": "Settings",
     "products": "Products",
     "create": "Create",
     "edit": "Edit"
+  },
+  "loginPage": {
+    "login": "LogIn",
+    "username": "Username",
+    "password": "Password",
+    "type your username": "Type your username",
+    "type your password": "Type your password"
+  },
+  "errors": {
+    "something went wrong": "Something went wrong"
   }
 }

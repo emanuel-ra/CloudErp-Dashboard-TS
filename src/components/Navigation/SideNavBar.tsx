@@ -6,9 +6,11 @@ import { LogOutIcon } from "../Icons/LogOutIcon";
 import SideNavBarCollapseOption from "./SideNavBarCollapseOption";
 import { SideNavBarOption, SideNavBarOptionCallback } from "./SideNavBarOption";
 import { Divider } from "@tremor/react";
+import { useLoginStore } from "../../stores/auth";
 
 export const SideNavBar = () => {
   const mini = useSideNavStores((state) => state.mini);
+  const logOut = useLoginStore((state) => state.logOut);
   const { t } = useTranslation();
   const SideNavRoutes = AuthorizeRutes;
 
@@ -32,7 +34,7 @@ export const SideNavBar = () => {
 
         <hr className="mt-2" />
 
-        <div className="py-2 h-[92%] flex flex-col justify-between">
+        <div className="py-2 min-h-dvh flex flex-col justify-between">
           <ul>
             {SideNavRoutes.map((route, index) => {
               const children = route?.children;
@@ -70,14 +72,12 @@ export const SideNavBar = () => {
           </ul>
 
           <ul>
-            <Divider />
+            <hr className="mt-2" />
             <SideNavBarOptionCallback
-              key={""}
+              key={"logout"}
               icon={<LogOutIcon />}
               label={t("sideNavBar.logout")}
-              callback={() => {
-                alert("hi");
-              }}
+              callback={logOut}
               isMini={mini}
             />
 

@@ -1,7 +1,8 @@
-
-export const SunIcon = (props:any) => {
-  const { size=6, css='' } = props;
-
+interface Props {
+  size: number;
+  css?: string;
+}
+export const SunIcon = ({ size = 6, css = "" }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,4 +20,4 @@ export const SunIcon = (props:any) => {
       />
     </svg>
   );
-}
+};

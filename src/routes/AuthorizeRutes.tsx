@@ -1,6 +1,6 @@
 import { TagIcon } from "@heroicons/react/solid";
 import { HomeIcon } from "../components/Icons/HomeIcon";
-import { ProductsListPage } from "../pages/Products/ProductsListPage";
+import { ProductsPage } from "../pages/Products/ProductsPage";
 import { BranchesPage } from "../pages/Branches/BranchesPage";
 import { CategoriesPage } from "../pages/Categories/CategoriesPage";
 
@@ -19,7 +19,7 @@ export const AuthorizeRutes = [
         icon: <TagIcon />,
         label: "sideNavBar.products",
         path: "/products",
-        element: <ProductsListPage />,
+        element: <ProductsPage />,
       },
 
       {

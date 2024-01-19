@@ -7,7 +7,7 @@ export function BreadcrumbSimple() {
     .slice(1)
     .filter((x) => !parseInt(x));
   const { t } = useTranslation();
-  const title = location[location.length - 1];
+  const title = location[location.length - 1] || "home";
   return (
     <>
       <nav aria-label="Breadcrumb" className="text-slate-800 dark:text-white">

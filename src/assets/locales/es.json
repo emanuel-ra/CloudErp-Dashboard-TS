@@ -16,9 +16,22 @@
     "language": "Lenguaje"
   },
   "breadcrumb": {
+    "home": "Inicio",
+    "brand": "Marca",
+    "categories": "Categorías",
     "settings": "Configuraciones",
     "products": "Productos",
     "create": "Crear",
     "edit": "Editar"
+  },
+  "loginPage": {
+    "login": "Iniciar Session",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "type your username": "Ingresa tu usuario",
+    "type your password": "Ingresa tu contraseña"
+  },
+  "errors": {
+    "something went wrong": "Algo salio mal"
   }
 }
