@@ -23,8 +23,7 @@ export async function GetProducts({
         },
       }
     );
-    const result: IProductResponse = response.data;
-    return result;
+    return response.data;
   } catch (error) {
     throw error;
   }
