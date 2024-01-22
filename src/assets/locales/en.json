@@ -2,6 +2,7 @@
   "language": "Language",
   "spanish": "Spanish",
   "english": "English",
+  "search": "Search",
   "sideNavBar": {
     "home": "home",
     "settings": "Settings",
@@ -17,6 +18,7 @@
   },
   "breadcrumb": {
     "home": "Home",
+    "catalogue": "Catalogue",
     "brand": "Brand",
     "categories": "Categories",
     "settings": "Settings",
