@@ -17,7 +17,7 @@ export interface ISessionResponse {
 }
 
 export interface ISession {
-  token: string;
+  token?: string;
   user?: IUserLogged;
   routes?: IRoutes;
 }

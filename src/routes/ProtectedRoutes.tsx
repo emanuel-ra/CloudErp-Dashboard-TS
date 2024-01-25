@@ -1,12 +1,16 @@
-import { Navigate } from "react-router-dom"
-import { Layout } from "../setup/Layout"
-import { useLoginStore } from "../stores/auth"
+import { Navigate, useLocation } from "react-router-dom";
+import { Layout } from "../setup/Layout";
+import { useLoginStore } from "../stores/auth";
+import axios from "axios";
 
-export const ProtectedRoutes = ()=>{
-    const session = useLoginStore(state => state.session)
-    if(!session?.token){
-        return <Navigate to={`/login`} />        
-    }
+export const ProtectedRoutes = () => {
+  const session = useLoginStore((state) => state.session);
+  const token = session?.token;
+  if (!token) {
+    return <Navigate to={`/login`} />;
+  }
 
-    return (<Layout />)
-}
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  return <Layout />;
+};

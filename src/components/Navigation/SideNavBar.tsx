@@ -5,7 +5,6 @@ import { useSideNavStores } from "../../stores/ui/sidenavbar";
 import { LogOutIcon } from "../Icons/LogOutIcon";
 import SideNavBarCollapseOption from "./SideNavBarCollapseOption";
 import { SideNavBarOption, SideNavBarOptionCallback } from "./SideNavBarOption";
-import { Divider } from "@tremor/react";
 import { useLoginStore } from "../../stores/auth";
 
 export const SideNavBar = () => {
@@ -18,7 +17,7 @@ export const SideNavBar = () => {
     <aside
       className={`[grid-area:aside] ${
         mini ? "aside-mini" : "aside"
-      } transition-all delay-75 ease-out `}
+      } transition-all delay-75 ease-out z-10 `}
     >
       <div className="aside-nav-wrapper">
         <div className="aside-nav-head">

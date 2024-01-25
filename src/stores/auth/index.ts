@@ -19,6 +19,7 @@ export const useLoginStore = create<IAuthState>()(
           password: string;
         }) => {
           const result = await LogInService({ username, password });
+
           const session: ISession = {
             token: result.token,
             user: result.user,

@@ -6,6 +6,7 @@ interface ListProps {
   page: number;
   search: string;
 }
+
 export async function GetProducts({
   page,
   search,

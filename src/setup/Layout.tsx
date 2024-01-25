@@ -17,7 +17,7 @@ export const Layout = () => {
         <SideNavBar />
 
         <main
-          className={`[grid-area:main] min-h-dvh flex flex-col justify-between pr-9`}
+          className={`[grid-area:main] h-full flex flex-col justify-between `}
         >
           <Outlet />
           <Footer />

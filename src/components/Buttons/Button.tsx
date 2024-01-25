@@ -4,7 +4,7 @@ interface Props {
   children?: React.ReactNode;
   Click?: () => void;
 }
-export const ButtonIcon = (props: Props) => {
+export const Button = (props: Props) => {
   const { children, Click } = props;
   return (
     <button

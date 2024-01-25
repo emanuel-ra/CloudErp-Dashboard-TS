@@ -35,5 +35,13 @@
   },
   "errors": {
     "something went wrong": "Something went wrong"
-  }
+  },
+  "breadcrumb.": "",
+  "code": "Code",
+  "name": "Name",
+  "price": "Price",
+  "price wholesale": "Wholesale Price",
+  "price stockist": "Stockist Price",
+  "price vip": "Vip Price",
+  "price box": "Box Price"
 }

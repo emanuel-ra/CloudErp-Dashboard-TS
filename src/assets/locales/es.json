@@ -35,5 +35,13 @@
   },
   "errors": {
     "something went wrong": "Algo salio mal"
-  }
+  },
+  "breadcrumb.": "",
+  "code": "Código",
+  "name": "Nombre",
+  "price": "Precio",
+  "price wholesale": "Precio al por mayor",
+  "price stockist": "Precio distribuidor",
+  "price vip": "Precio Vip",
+  "price box": "Precio Caja"
 }
