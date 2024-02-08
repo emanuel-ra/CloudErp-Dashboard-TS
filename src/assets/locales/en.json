@@ -2,6 +2,7 @@
   "language": "Language",
   "spanish": "Spanish",
   "english": "English",
+  "search": "Search",
   "sideNavBar": {
     "home": "home",
     "settings": "Settings",
@@ -16,9 +17,31 @@
     "language": "Language"
   },
   "breadcrumb": {
+    "home": "Home",
+    "catalogue": "Catalogue",
+    "brand": "Brand",
+    "categories": "Categories",
     "settings": "Settings",
     "products": "Products",
     "create": "Create",
     "edit": "Edit"
-  }
+  },
+  "loginPage": {
+    "login": "LogIn",
+    "username": "Username",
+    "password": "Password",
+    "type your username": "Type your username",
+    "type your password": "Type your password"
+  },
+  "errors": {
+    "something went wrong": "Something went wrong"
+  },
+  "breadcrumb.": "",
+  "code": "Code",
+  "name": "Name",
+  "price": "Price",
+  "price wholesale": "Wholesale Price",
+  "price stockist": "Stockist Price",
+  "price vip": "Vip Price",
+  "price box": "Box Price"
 }

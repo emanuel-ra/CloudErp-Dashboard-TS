@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useId } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 interface ISideNavBarOption {
   icon: React.ReactNode;
@@ -21,6 +22,7 @@ export const SideNavBarOption = ({
   isMini,
 }: ISideNavBarOption) => {
   const { t } = useTranslation();
+  const tooltipId = useId();
   return (
     <li
       className={`group cursor-pointer relative flex max-md:flex-col text-center items-center py-0 px-0 gap-2 w-full hover:rounded-lg hover:shadow-lg 
@@ -28,7 +30,12 @@ export const SideNavBarOption = ({
       text-slate-600 hover:text-white
       dark:text-white dark:hover:bg-blue-800`}
     >
+      <Tooltip id={tooltipId} />
       <Link
+        data-tooltip-id={tooltipId}
+        data-tooltip-content={t(`${label}`)}
+        data-tooltip-place="top-start"
+        data-tooltip-hidden={!isMini}
         to={path}
         className="flex gap-2 items-center w-full h-full text-left py-2 px-4"
       >
@@ -41,14 +48,6 @@ export const SideNavBarOption = ({
         </i>
         {!isMini && <span>{t(`${label}`)}</span>}
       </Link>
-
-      {isMini && (
-        <>
-          <span className="absolute w-28 top-0 left-20 scale-0 rounded bg-gray-800 dark:group-hover:bg-white dark:group-hover:text-slate-800 p-2 text-xs text-white group-hover:scale-100 z-[100]">
-            {t(label)}
-          </span>
-        </>
-      )}
     </li>
   );
 };
@@ -59,19 +58,25 @@ export const SideNavBarOptionCallback = ({
   callback,
   isMini,
 }: ISideNavBarOptionCallback) => {
+  const tooltipId = useId();
   return (
     <li
-      className={`relative group cursor-pointer flex max-md:flex-col text-center items-center py-2 px-4 gap-2 w-full z-50
+      className={`relative group cursor-pointer flex max-md:flex-col py-2 px-4 gap-2 w-full
       text-slate-600
       hover:rounded-lg hover:shadow-lg  hover:bg-blue-700/80 hover:text-white             
       dark:text-white dark:hover:bg-blue-800`}
     >
+      <Tooltip id={tooltipId} />
       <a
+        data-tooltip-id={tooltipId}
+        data-tooltip-content={label}
+        data-tooltip-place="top-start"
+        data-tooltip-hidden={!isMini}
         href="#"
         onClick={() => {
           callback();
         }}
-        className="flex gap-2 items-center justify-center "
+        className="flex gap-2 items-center"
       >
         <i
           className={`w-5 h-5 ${
@@ -82,14 +87,6 @@ export const SideNavBarOptionCallback = ({
         </i>
         {!isMini && <span>{label}</span>}
       </a>
-
-      {isMini && (
-        <>
-          <span className="absolute w-28 top-0 left-20 scale-0 rounded bg-gray-800 dark:group-hover:bg-white dark:group-hover:text-slate-800 p-2 text-xs text-white group-hover:scale-100 z-50">
-            {label}
-          </span>
-        </>
-      )}
     </li>
   );
 };

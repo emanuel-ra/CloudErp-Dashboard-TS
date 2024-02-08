@@ -1,10 +1,10 @@
-import { Card, Title } from "@tremor/react";
+import { Card } from "../Card";
 import { useTranslation } from "react-i18next";
 export const SettingAccount = () => {
   const { t } = useTranslation();
   return (
     <Card id="settingAccountSection">
-      <Title>{t("settings.account")}</Title>
+      <h1>{t("settings.account")}</h1>
     </Card>
   );
 };

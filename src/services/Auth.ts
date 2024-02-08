@@ -20,9 +20,12 @@ export async function LogInService({
         headers: { "Content-Type": "application/json" },
       }
     );
-
     // Access the data from the response
     const result: ISessionResponse = response.data;
+
+    if (result.isSuccess) {
+      response.data.token.trim();
+    }
     return result;
   } catch (error) {
     // Handle errors here

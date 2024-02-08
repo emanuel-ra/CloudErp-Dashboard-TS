@@ -4,9 +4,14 @@ import { PublicRoutes } from "./PublicRoutes";
 import { AuthorizeRutes } from "./AuthorizeRutes";
 import { ActionRoutes } from "./ActionRoutes";
 import { OnlyAuthenticateRotes } from "./OnlyAuthenticateRoutes";
+import { useLoginStore } from "../stores/auth";
 
 export const Routes = () => {
-  const routes = createBrowserRouter([...PublicRoutes, ...authorized]);
+  const routes = createBrowserRouter([
+    ...PublicRoutes,
+    ...authorized,
+    // ...(!token ? authorized : []),
+  ]);
 
   return <RouterProvider router={routes} />;
 };
