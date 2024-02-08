@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}", // Tremor module
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@tremor/**/*.{js,ts,jsx,tsx}' // Tremor module
   ],
-  darkMode: ["class", '[data-mode="dark"]'],
+  darkMode: ['class', '[data-mode="dark"]'],
   theme: {
-    extend: {},
+    extend: {}
   },
 
-  plugins: [],
-};
+  plugins: []
+}
