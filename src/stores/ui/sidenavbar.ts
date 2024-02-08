@@ -5,7 +5,7 @@ import { PREFIX_STORAGE } from "../../setup/constants";
 
 export const useSideNavStores = create<ISideNavBar>()(
   persist(
-    (set, get) => {
+    (set) => {
       return {
         mini: false,
         setState: (mini: boolean) => {
