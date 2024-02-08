@@ -9,7 +9,11 @@
     "products": "Productos",
     "categories": "Categorías",
     "brands": "Marcas",
+    "catalogueSat": "Catalogo SAT",
     "settings": "Configuraciones",
+    "regFiscal": "Regimen Fiscal",
+    "usoCfdi" : "Uso de CFDI 4.0",
+    "client" : "Clientes",
     "logout": "Salir"
   },
   "settings": {
@@ -24,6 +28,9 @@
     "settings": "Configuraciones",
     "products": "Productos",
     "create": "Crear",
+    "regFiscal": "Regimen Fiscal",
+    "UsoCfdi" : "Uso de CFDI 4.0",
+    "Cliente" : "Clientes",
     "edit": "Editar"
   },
   "loginPage": {
