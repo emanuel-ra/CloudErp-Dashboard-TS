@@ -22,8 +22,10 @@
     "react-i18next": "14.0.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.21.1",
+    "react-toastify": "^10.0.4",
     "react-tooltip": "^5.25.2",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.10.4",
     "zustand": "4.4.7"
   },
   "devDependencies": {
