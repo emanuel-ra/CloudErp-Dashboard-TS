@@ -2,8 +2,7 @@
 export default {
   content: [
     './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@tremor/**/*.{js,ts,jsx,tsx}' // Tremor module
+    './src/**/*.{js,ts,jsx,tsx}'
   ],
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
