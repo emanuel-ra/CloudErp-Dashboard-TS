@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 interface Props {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
+  children: React.ReactNode
+  className?: string
+  id?: string
 }
 export const Card = ({ children, className, id }: Props) => {
   return (
@@ -13,5 +13,5 @@ export const Card = ({ children, className, id }: Props) => {
     >
       {children}
     </div>
-  );
-};
+  )
+}

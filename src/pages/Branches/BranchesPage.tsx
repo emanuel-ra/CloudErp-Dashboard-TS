@@ -1,3 +1,3 @@
-export const BranchesPage = ()=>{
-    return "Branches Page"
+export const BranchesPage = () => {
+  return 'Branches Page'
 }

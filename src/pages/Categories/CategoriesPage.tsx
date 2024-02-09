@@ -1,3 +1,3 @@
 export const CategoriesPage = () => {
-    return "Categories page"
+  return 'Categories page'
 }

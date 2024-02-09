@@ -1,5 +1,5 @@
-import { Card } from "../../components/Card";
+import { Card } from '../../components/Card'
 
 export const ProductsEditPage = () => {
-  return <Card>edit</Card>;
-};
+  return <Card>edit</Card>
+}

@@ -1,19 +1,18 @@
-import { useCallback, useState } from "react";
-import { CreateCustomer } from "../../services/Customer";
+import { useCallback, useState } from 'react'
 import {
-  type ICustomerNew
-} from "../../abstraction/Interfazes/ICustomers";
+    type ICustomerNew
+} from '../../abstraction/Interfaces/ICustomers'
+import { CreateCustomer } from '../../services/Customer'
 
 interface Props {
-  formData: ICustomerNew;
+  formData: ICustomerNew
 }
 
-
 export const useCustomerCreate = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false)
 
   const createCustomer = useCallback(async ({ formData }: Props) => {
-    setLoading(true);
+    setLoading(true)
     try {
       const mappedData = {
         vchNombres: formData.vchNombres,
@@ -36,19 +35,18 @@ export const useCustomerCreate = () => {
         sat_regimen_fiscal_clave: formData.sat_regimen_fiscal_clave,
         sat_uso_cfdi_clave: formData.sat_uso_cfdi_clave,
         idStatus: formData.idStatus
-      };
+      }
 
-      const response: ICustomerNew = await CreateCustomer(mappedData);
-      //console.log("responseCreate",response)
+      const response: ICustomerNew = await CreateCustomer(mappedData)
+      // console.log("responseCreate",response)
       return response
-
     } catch (error) {
-      console.error('Error al actualizar los datos:', error);
+      console.error('Error al actualizar los datos:', error)
       return error
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  }, []);
+  }, [])
 
-  return { createCustomer, loading};
-};
+  return { createCustomer, loading }
+}

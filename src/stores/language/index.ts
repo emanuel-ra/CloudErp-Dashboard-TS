@@ -1,18 +1,18 @@
-import { create } from "zustand";
-import { ILanguage } from "../../abstraction/Interfazes/ILanguage";
-import { persist } from "zustand/middleware";
-import { PREFIX_STORAGE } from "../../setup/constants";
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+import { ILanguage } from '../../abstraction/Interfaces/ILanguage'
+import { PREFIX_STORAGE } from '../../setup/constants'
 
 export const useLanguageStore = create<ILanguage>()(
   persist(
     (set) => {
       return {
-        lang: "en",
+        lang: 'en',
         setLanguage: (lang) => {
-          set({ lang });
-        },
-      };
+          set({ lang })
+        }
+      }
     },
     { name: `${PREFIX_STORAGE}::LANGUAGE` }
   )
-);
+)

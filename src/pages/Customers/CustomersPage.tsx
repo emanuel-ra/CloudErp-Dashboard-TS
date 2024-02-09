@@ -1,29 +1,29 @@
 import { useEffect, useId, useRef, useState } from "react";
 
-import { Card } from "../../components/Card";
-import { useUsoCfdiList } from "../../hooks/Catalogo_SAT/useUsoCfdiList";
-import { useCustomerList } from "../../hooks/Customers/useCustomerList";
-import { useCustomerID } from "../../hooks/Customers/useCustomerID";
-import { useCustomerUpd } from "../../hooks/Customers/useCustomerUpdate";
-import { usedeleteCustomerID } from "../../hooks/Customers/useCustomerDelete";
-import { useCustomerCreate } from "../../hooks/Customers/useCustomerCreate";
-import { useRegimenFiscalList } from "../../hooks/Catalogo_SAT/useRegimenFiscalList";
-import { Button, ButtonCircleEdit, ButtonCircleAdd, ButtonCircleDel } from "../../components/Buttons/Button";
-import { TextInput, InputModalS, InputModalL } from "../../components/Inputs/TextInput";
-import { SearchCircle } from "../../components/Icons/SearchIcon";
-import { Select } from "../../components/Selects";
 import { useTranslation } from "react-i18next";
-import { Table } from "../../components/Tables/Table";
-import { Thead } from "../../components/Tables/Thead";
-import { TableBody } from "../../components/Tables/TableBody";
-import { BadgeGreen, BadgeRed } from "../../components/Span/Badges";
-import { TableCell } from "../../components/Tables/TableCell";
-import { TableHeadCell } from "../../components/Tables/TableHeadCell";
-import { Pagination } from "../../components/Pagination/Pagination";
-import { Modal, ModalFooter } from '../../components/Modal'; 
-import { LabelInp } from '../../components/Labels/LabelsModal'
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
+import { Button, ButtonCircleAdd, ButtonCircleDel, ButtonCircleEdit } from "../../components/Buttons/Button";
+import { Card } from "../../components/Card";
+import { SearchCircle } from "../../components/Icons/SearchIcon";
+import { InputModalL, InputModalS, TextInput } from "../../components/Inputs/TextInput";
+import { LabelInp } from '../../components/Labels/LabelsModal';
+import { Modal, ModalFooter } from '../../components/Modal';
+import { Pagination } from "../../components/Pagination/Pagination";
+import { Select } from "../../components/Selects";
+import { BadgeGreen, BadgeRed } from "../../components/Span/Badges";
+import { Table } from "../../components/Tables/Table";
+import { TableBody } from "../../components/Tables/TableBody";
+import { TableCell } from "../../components/Tables/TableCell";
+import { TableHeadCell } from "../../components/Tables/TableHeadCell";
+import { Thead } from "../../components/Tables/Thead";
+import { useRegimenFiscalList } from "../../hooks/Catalogo_SAT/useRegimenFiscalList";
+import { useUsoCfdiList } from "../../hooks/Catalogo_SAT/useUsoCfdiList";
+import { useCustomerCreate } from "../../hooks/Customers/useCustomerCreate";
+import { usedeleteCustomerID } from "../../hooks/Customers/useCustomerDelete";
+import { useCustomerID } from "../../hooks/Customers/useCustomerID";
+import { useCustomerList } from "../../hooks/Customers/useCustomerList";
+import { useCustomerUpd } from "../../hooks/Customers/useCustomerUpdate";
 
 
 
