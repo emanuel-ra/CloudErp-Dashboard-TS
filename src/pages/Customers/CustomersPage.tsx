@@ -20,7 +20,6 @@ import { BadgeGreen, BadgeRed } from "../../components/Span/Badges";
 import { TableCell } from "../../components/Tables/TableCell";
 import { TableHeadCell } from "../../components/Tables/TableHeadCell";
 import { Pagination } from "../../components/Pagination/Pagination";
-import { NumberFormat } from "../../utils/Formats";
 import { Modal, ModalFooter } from '../../components/Modal'; 
 import { LabelInp } from '../../components/Labels/LabelsModal'
 import Swal from 'sweetalert2';
@@ -31,11 +30,11 @@ import 'sweetalert2/dist/sweetalert2.css';
 
 export const CustomerPage = () => {
   const [page, setPage] = useState<number>(0);
-  const [selectedCustomerId, setSelectedCustomerId] = useState(null);
+  const [selectedCustomerId, setSelectedCustomerId]= useState<number | null>(null);;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalIsOpenAdd, setModalIsOpenAdd] = useState(false);
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const { t } = useTranslation();
 
@@ -43,15 +42,15 @@ export const CustomerPage = () => {
 
   const { customer, getCustomer, pages } = useCustomerList();
 
-  const { updtCustomer, loading: updatingCustomer } = useCustomerUpd();
-  const { createCustomer, loading: creatingCustomer } = useCustomerCreate();
+  const { updtCustomer} = useCustomerUpd();
+  const { createCustomer } = useCustomerCreate();
 
 
-  const { getCustomerById, customerid, loading } = useCustomerID();
-  const { deleteCustomerID, loading: deleteingCustomer } = usedeleteCustomerID();
+  const { getCustomerById, customerid } = useCustomerID();
+  const { deleteCustomerID } = usedeleteCustomerID();
 
 
-  const { regimenfiscal, getRegimenFiscal, pagesR } = useRegimenFiscalList();
+  const { regimenfiscal, getRegimenFiscal } = useRegimenFiscalList();
   const data = [
     { value: 0, label: 'Seleccione una opción' },
     ...regimenfiscal.map((row) => ({
@@ -60,7 +59,7 @@ export const CustomerPage = () => {
     })),
   ];
 
-  const { usocfdi, getUsoCfdi, pagesU } = useUsoCfdiList();
+  const { usocfdi, getUsoCfdi } = useUsoCfdiList();
   const dataUso = [
     { value: 0, label: 'Seleccione una opción' },
     ...usocfdi.map((row) => ({
@@ -104,7 +103,7 @@ export const CustomerPage = () => {
         idStatus: 1
       };
   
-      const response = await updtCustomer({ formData });
+      const response: any = await updtCustomer({ formData });
       console.log(response)
       if(response.id > 0){
         closeModal();
@@ -161,7 +160,7 @@ export const CustomerPage = () => {
         idStatus: 1
       };
   
-      const response = await createCustomer({ formData });
+      const response: any = await createCustomer({ formData });
       if(response.id > 0){
         closeModal();
         Swal.fire({
@@ -253,7 +252,9 @@ export const CustomerPage = () => {
 
   const closeModal = () => {
     getCustomer({ page, search: "" });
-    formRef.current.reset();
+    if (formRef.current !== null) {
+      formRef.current.reset();
+    }    
     setModalIsOpen(false);
     setModalIsOpenAdd(false)
   };
@@ -301,7 +302,6 @@ export const CustomerPage = () => {
             <TableHeadCell>{t("Codigo Postal")}</TableHeadCell>
             <TableHeadCell>{t("Estatus")}</TableHeadCell>
             <TableHeadCell> </TableHeadCell>
-
           </tr>
         </Thead>
         <TableBody>
@@ -341,7 +341,7 @@ export const CustomerPage = () => {
         pageIndex={page}
         setPageIndex={handlePage}
       />
-      <Modal isOpen={modalIsOpen} onClose={closeModal}>
+      <Modal isOpen={modalIsOpen} onClose={closeModal} maxWidth="50%" maxHeight="82%">
         <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
           <h3 className="text-center text-lg font-semibold text-white-900 dark:text-white">
               Actualizar Datos Cliente
@@ -429,7 +429,7 @@ export const CustomerPage = () => {
         </form>
       </Modal>
 
-      <Modal isOpen={modalIsOpenAdd} onClose={closeModal}>
+      <Modal isOpen={modalIsOpenAdd} onClose={closeModal} maxWidth="50%" maxHeight="82%">
         <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
           <h3 className="text-center text-lg font-semibold text-white-900 dark:text-white">
               Crear Nuevo Cliente
