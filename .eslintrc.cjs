@@ -11,6 +11,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    '@typescript-eslint/restrict-plus-operands': [
+      'error',
+      { checkCompoundAssignments: true }
+    ],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true }

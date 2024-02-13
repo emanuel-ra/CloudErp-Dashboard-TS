@@ -21,6 +21,7 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
 export const CategoriesPage = () => {
+<<<<<<< HEAD
   const [page, setPage] = useState<number>(0);
   const [modalIsOpenAdd, setModalIsOpenAdd] = useState(false);
   const formRef = useRef(null);
@@ -184,3 +185,7 @@ export const CategoriesPage = () => {
     
   );
 };
+=======
+  return 'Categories page'
+}
+>>>>>>> 28dfc839a50759e21c184197d60f5a3339683999
