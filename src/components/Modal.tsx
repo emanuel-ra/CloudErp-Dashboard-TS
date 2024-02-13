@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react';
-import ReactModal from 'react-modal';
+import React from 'react';
 
 
 interface ModalProps {
@@ -49,7 +48,7 @@ export const ModalFooter: React.FC<ModalFooterProps> = ({
       <svg 
         data-slot="icon" 
         fill="none" 
-        stroke-width="1.5" 
+        strokeWidth="1.5" 
         stroke="currentColor" 
         viewBox="0 0 24 24" 
         xmlns="http://www.w3.org/2000/svg" 
@@ -57,8 +56,8 @@ export const ModalFooter: React.FC<ModalFooterProps> = ({
         className="w-5 h-5">
 
         <path 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
           d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3">
           </path>
 
@@ -73,7 +72,7 @@ export const ModalFooter: React.FC<ModalFooterProps> = ({
           <svg
             data-slot="icon"
             fill="none"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,8 +80,8 @@ export const ModalFooter: React.FC<ModalFooterProps> = ({
             className="w-5 h-5" 
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
             ></path>
           </svg>

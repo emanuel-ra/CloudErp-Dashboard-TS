@@ -19,7 +19,9 @@ export interface ICustomersResponse {
     dFechaIN: Date;
     vchNumInt: string;
     vchNumExt: string;
-    sat_cp: string
+    idPais: number;
+    idEstado: number;
+    sat_cp: string;
     sat_razonsocial: string | null;
     email_cfdi: string | null;
     sat_regimen_fiscal_clave: string | null;

@@ -1,20 +1,20 @@
 import axios, { AxiosResponse } from "axios";
-import { API_URL, ENDPOINT_USOCFDI } from "../../setup/constants";
-import { IUsoCfdiResponse } from "../../abstraction/Interfazes/IUsoCfdi";
-import { useLoginStore } from "../../stores/auth";
+import { API_URL, ENDPOINT_CATEGORIES } from "../setup/constants";
+import { ICatogoriesResponse, ICategorie} from "../abstraction/Interfazes/ICategories";
+import { useLoginStore } from "../stores/auth";
 
 interface ListProps {
     page: number;
     search: string;
   }
 
-export async function GetUsoCfdi({
+export async function GetCategories({
     page,
     search,
-}:ListProps): Promise<IUsoCfdiResponse> {
+}:ListProps): Promise<ICatogoriesResponse> {
     try{
-        const response: AxiosResponse<IUsoCfdiResponse> = await axios.post(
-            `${API_URL}/V1/Catalogo_SAT${ENDPOINT_USOCFDI}/List`,
+        const response: AxiosResponse<ICatogoriesResponse> = await axios.post(
+            `${API_URL}/V1${ENDPOINT_CATEGORIES}/List`,
             {
                 page,
                 search,

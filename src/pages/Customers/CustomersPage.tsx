@@ -3,15 +3,13 @@ import { useEffect, useId, useRef, useState } from "react";
 import { Card } from "../../components/Card";
 import { useUsoCfdiList } from "../../hooks/Catalogo_SAT/useUsoCfdiList";
 import { useCustomerList } from "../../hooks/Customers/useCustomerList";
-import { useCustomerID } from "../../hooks/Customers/useCustomerID";
 import { useCustomerUpd } from "../../hooks/Customers/useCustomerUpdate";
 import { usedeleteCustomerID } from "../../hooks/Customers/useCustomerDelete";
 import { useCustomerCreate } from "../../hooks/Customers/useCustomerCreate";
 import { useRegimenFiscalList } from "../../hooks/Catalogo_SAT/useRegimenFiscalList";
-import { Button, ButtonCircleEdit, ButtonCircleAdd, ButtonCircleDel } from "../../components/Buttons/Button";
-import { TextInput, InputModalS, InputModalL } from "../../components/Inputs/TextInput";
+import { Button,  ButtonCircleDel } from "../../components/Buttons/Button";
+import { TextInput } from "../../components/Inputs/TextInput";
 import { SearchCircle } from "../../components/Icons/SearchIcon";
-import { Select } from "../../components/Selects";
 import { useTranslation } from "react-i18next";
 import { Table } from "../../components/Tables/Table";
 import { Thead } from "../../components/Tables/Thead";
@@ -20,8 +18,7 @@ import { BadgeGreen, BadgeRed } from "../../components/Span/Badges";
 import { TableCell } from "../../components/Tables/TableCell";
 import { TableHeadCell } from "../../components/Tables/TableHeadCell";
 import { Pagination } from "../../components/Pagination/Pagination";
-import { Modal, ModalFooter } from '../../components/Modal'; 
-import { LabelInp } from '../../components/Labels/LabelsModal'
+import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
@@ -46,7 +43,6 @@ export const CustomerPage = () => {
   const { createCustomer } = useCustomerCreate();
 
 
-  const { getCustomerById, customerid } = useCustomerID();
   const { deleteCustomerID } = usedeleteCustomerID();
 
 
@@ -189,10 +185,6 @@ export const CustomerPage = () => {
     }
   };
 
-  const getCustomerId = async (id:number)=>{
-    await getCustomerById({id});  
-    setModalIsOpen(true);  
-  }
 
   const handlePage = (newPage: number) => {
     setPage(newPage);
@@ -203,19 +195,6 @@ export const CustomerPage = () => {
 
   }, [page]);
 
-  const handleEditClick = async (id: number) => {
-    setSelectedCustomerId(id);
-    try {
-      await Promise.all([
-        getRegimenFiscal({ page, search: "" }),
-        getUsoCfdi({ page, search: "" }),
-      ]);
-  
-      await getCustomerId(id);
-    } catch (error) {
-      console.error("Error al realizar las llamadas:", error);
-    }
-  };
 
   const handleDeleteClick = async (id: number) => {
     const respuesta =  await deleteCustomerID({id})
@@ -237,18 +216,6 @@ export const CustomerPage = () => {
     }
   };
 
-  const handleAddClick = async () => {
-    try {
-      await Promise.all([
-        getRegimenFiscal({ page, search: "" }),
-        getUsoCfdi({ page, search: "" }),
-      ]);
-      setModalIsOpenAdd(true);  
-
-    } catch (error) {
-      console.error("Error al realizar las llamadas:", error);
-    }
-  };
 
   const closeModal = () => {
     getCustomer({ page, search: "" });
@@ -266,19 +233,22 @@ export const CustomerPage = () => {
           <h1 className="text-3xl font-bold">Clientes</h1>
         </div>
         <div className="flex gap-4">
-          <ButtonCircleAdd onClick={handleAddClick} 
-          svg={
-          <svg 
-            className="w-4 h-4" 
-            fill="none" 
-            stroke-width="1.5" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg" 
-            aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"></path>
-          </svg>}>
-          </ButtonCircleAdd>
+
+          <Link
+            className="bg-blue-700/90 text-white hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+            to="/Cliente/create"
+          >
+            <svg 
+              className="w-4 h-4" 
+              fill="none" 
+              strokeWidth="1.5" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/26000/svg" 
+              aria-hidden="true">
+                <path d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z"></path>
+            </svg>
+          </Link>
         </div>
       </div>
      
@@ -326,7 +296,14 @@ export const CustomerPage = () => {
               </TableCell>
               <TableCell className="text-center" >
               <div className="flex justify-center space-x-2"> 
-                <ButtonCircleEdit onClick={() => handleEditClick(row.id)}>Edit</ButtonCircleEdit>
+                <Link 
+                  className="bg-blue-700/90 text-white hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+                  to={`/Cliente/Actualizar/${row.id}`}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                  </svg>
+                </Link>
                 <div style={{ marginRight: '1px' }}></div> 
                 <ButtonCircleDel onClick={() => handleDeleteClick(row.id)}></ButtonCircleDel>
               </div>
@@ -341,179 +318,6 @@ export const CustomerPage = () => {
         pageIndex={page}
         setPageIndex={handlePage}
       />
-      <Modal isOpen={modalIsOpen} onClose={closeModal} maxWidth="50%" maxHeight="82%">
-        <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-          <h3 className="text-center text-lg font-semibold text-white-900 dark:text-white">
-              Actualizar Datos Cliente
-          </h3>
-        </div>                
-        <form className="p-4 md:p-5" onSubmit={handleGuardar} ref={formRef}>
-          <div className="grid gap-4 mb-4 grid-cols-2">
-            <div className="col-span-2">
-              <LabelInp>
-                Codigo Cliente
-              </LabelInp>
-              <InputModalL name={"codeCte"} value={customerid?.vchCodigo} disabled>
-              </InputModalL>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-                <LabelInp>
-                  Nombre
-                </LabelInp>
-                <InputModalS name={"Nombre"} value={customerid?.vchNombres}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Apellidos
-              </LabelInp>
-              <InputModalS name={"Apellidos"} value={customerid?.vchApellidos}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Telefono
-              </LabelInp>
-              <InputModalS name={"Telefono"} value={customerid?.vchTelefonos}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Correo
-              </LabelInp>
-              <InputModalS name={"Correo"} value={customerid?.vchCorreos}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                RFC
-              </LabelInp>
-              <InputModalS name={"RFC"} value={customerid?.vchRFC}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Codigo Postal
-              </LabelInp>
-              <InputModalS name={"CodigoPostal"} value={customerid?.vchCodigoPostal}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <Select
-                id="cmbRegimenF"
-                label="Regimen Fiscal"
-                name="cmbRegimenF"
-                options={data}
-                value={customerid?.sat_regimen_fiscal_clave}>
-              </Select>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <Select
-                id="cmbUsoCFDI"
-                label="Uso de CFDI"
-                name="cmbUsoCFDI"
-                options={dataUso}
-                value={customerid?.sat_uso_cfdi_clave}>
-              </Select>
-            </div>
-            <div className="col-span-2">
-              <LabelInp>
-                Domicilio
-              </LabelInp>
-              <InputModalL name={"Domicilio"} value={customerid?.address}>
-              </InputModalL>
-            </div>   
-          </div>
-        <ModalFooter onClose={closeModal}>
-        </ModalFooter>
-        </form>
-      </Modal>
-
-      <Modal isOpen={modalIsOpenAdd} onClose={closeModal} maxWidth="50%" maxHeight="82%">
-        <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-          <h3 className="text-center text-lg font-semibold text-white-900 dark:text-white">
-              Crear Nuevo Cliente
-          </h3>
-        </div>                
-        <form className="p-4 md:p-5" onSubmit={handleCreate} ref={formRef}>
-          <div className="grid gap-4 mb-4 grid-cols-2">
-            <div className="col-span-2">
-              <LabelInp>
-                Codigo Cliente
-              </LabelInp>
-              <InputModalL name={"codeCte"}>
-              </InputModalL>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-                <LabelInp>
-                  Nombre
-                </LabelInp>
-                <InputModalS name={"Nombre"}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Apellidos
-              </LabelInp>
-              <InputModalS name={"Apellidos"}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Telefono
-              </LabelInp>
-              <InputModalS name={"Telefono"}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Correo
-              </LabelInp>
-              <InputModalS name={"Correo"}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                RFC
-              </LabelInp>
-              <InputModalS name={"RFC"}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <LabelInp>
-                Codigo Postal
-              </LabelInp>
-              <InputModalS name={"CodigoPostal"}>
-                </InputModalS>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <Select
-                id="cmbRegimenF"
-                label="Regimen Fiscal"
-                name="cmbRegimenF"
-                options={data}>
-              </Select>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <Select
-                id="cmbUsoCFDI"
-                label="Uso de CFDI"
-                name="cmbUsoCFDI"
-                options={dataUso}>
-              </Select>
-            </div>
-            <div className="col-span-2">
-              <LabelInp>
-                Domicilio
-              </LabelInp>
-              <InputModalL name={"Domicilio"}>
-              </InputModalL>
-            </div>   
-          </div>
-        <ModalFooter onClose={closeModal}>
-        </ModalFooter>
-        </form>
-      </Modal>
     </Card>
   );
 };
