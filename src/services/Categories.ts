@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { API_URL, ENDPOINT_CATEGORIES } from "../setup/constants";
-import { ICatogoriesResponse, ICategorie} from "../abstraction/Interfazes/ICategories";
-import { useLoginStore } from "../stores/auth";
+import { ICatogoriesResponse } from "../abstraction/Interfaces/ICategories";
 
 interface ListProps {
     page: number;

@@ -7,7 +7,7 @@ import { ProductsPage } from '../pages/Products/ProductsPage'
 import { CustomerPage } from '../pages/Customers/CustomersPage'
 import { UsoCfdiPage } from '../pages/Catalogo_SAT/UsoCFDIPage'
 import { BranchesPage } from '../pages/Branches/BranchesPage'
-import { CategoriesPage } from '../pages/Categories/CategoriesPage'
+//import { CategoriesPage } from '../pages/Categories/CategoriesPage'
 
 export const AuthorizeRutes = [
   {
@@ -27,12 +27,12 @@ export const AuthorizeRutes = [
         element: <ProductsPage />
       },
 
-      {
+/*       {
         icon: <TagIcon />,
         label: 'sideNavBar.categories',
         path: '/catalogue/categories',
         element: <CategoriesPage />
-      },
+      }, */
       {
         icon: <TagIcon />,
         label: 'sideNavBar.brands',
@@ -51,12 +51,12 @@ export const AuthorizeRutes = [
         path: '/UsoCfdi',
         element: <UsoCfdiPage />
       },
-      {
+/*       {
         icon: <MinusIcon />,
         label: 'sideNavBar.regFiscal',
         path: '/catalogue/categories',
         element: <CategoriesPage />
-      }
+      } */
     ]
   },
   {

@@ -36,6 +36,21 @@ export const CustomerUpdatePage = () => {
 
   const { updtCustomer} = useCustomerUpd();
 
+  const [dataCustomer, setCustomerid] = useState({
+    cmbRegimenF: '',
+    cmbUsoCFDI: '',
+    cmbPais: 0,
+    cmbEstado: 0,
+  });
+
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setCustomerid(prevState => ({
+      ...prevState,
+      [name]: value 
+    }));
+  };
+
   const data = [
     { value: 0, label: 'Seleccione una opción' },
     ...regimenfiscal.map((row) => ({
@@ -84,12 +99,12 @@ export const CustomerUpdatePage = () => {
         address: event.currentTarget['Domicilio'].value,
         vchRFC: event.currentTarget['RFC'].value,
         vchCodigoPostal: event.currentTarget['CodigoPostal'].value,
-        vchComentario: 'Commentary',
-        idPais: 1,
-        idEstado: 1,
-        vchNumInt: '1',
-        vchNumExt: '1',
-        external_id: 1,
+        vchComentario: event.currentTarget['Commentary'].value,
+        idPais: event.currentTarget['cmbPais'].value,
+        idEstado: event.currentTarget['cmbEstado'].value,
+        vchNumInt: event.currentTarget['NumeroInt'].value,
+        vchNumExt: event.currentTarget['NumeroExt'].value,
+        external_id: 0,
         sat_cp: event.currentTarget['CodigoPostal'].value,
         sat_razonsocial: event.currentTarget['Nombre'].value,
         email_cfdi: event.currentTarget['Correo'].value,
@@ -137,7 +152,20 @@ export const CustomerUpdatePage = () => {
     if (id !== null) {
       getCustomerById({ id }); 
     }
-}, [page, id]);
+  }, [page, id]);
+
+  useEffect(() => {
+    if (customerid) {
+      console.log("Entro otra")
+      setCustomerid({
+        cmbRegimenF: customerid.sat_regimen_fiscal_clave || '', 
+        cmbUsoCFDI: customerid.sat_uso_cfdi_clave || '', 
+        cmbEstado: customerid.idEstado || 0, 
+        cmbPais: customerid.idPais || 0 
+      });
+    }
+  }, [customerid]);
+
 
 
 
@@ -166,16 +194,16 @@ export const CustomerUpdatePage = () => {
               </Link>
               <ButtonCircleAdd 
               svg={            
-                  <svg 
-                      className="w-4 h-4" 
-                      fill="none" 
-                      strokeWidth="1.5" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24" 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      aria-hidden="true">
-                          <path clipRule="evenodd" fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"></path>
-                  </svg>
+                <svg                  
+                  className="w-4 h-4" 
+                  data-slot="icon" 
+                  fill="currentColor"
+                  strokeWidth="1.5"  
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  aria-hidden="true" >
+                    <path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
+                </svg>
               }>
               </ButtonCircleAdd>
           </div>  
@@ -237,7 +265,8 @@ export const CustomerUpdatePage = () => {
             label="Regimen Fiscal"
             name="cmbRegimenF"
             options={data}
-            value={customerid?.sat_regimen_fiscal_clave}
+            value={dataCustomer?.cmbRegimenF}
+            onChange={handleChange}
             >
             </Select>
         </div>
@@ -247,7 +276,9 @@ export const CustomerUpdatePage = () => {
             label="Uso de CFDI"
             name="cmbUsoCFDI"
             options={dataUso}
-            value={customerid?.sat_uso_cfdi_clave}
+            value={dataCustomer?.cmbUsoCFDI}
+            onChange={handleChange}
+
             >
             </Select>
         </div>
@@ -257,7 +288,9 @@ export const CustomerUpdatePage = () => {
             label="Pais"
             name="cmbPais"
             options={dataPaises}
-            value={customerid?.idPais}
+            value={dataCustomer?.cmbPais}
+            onChange={handleChange}
+
             >
             </Select>
         </div>
@@ -267,7 +300,9 @@ export const CustomerUpdatePage = () => {
             label="Estado"
             name="cmbEstado"
             options={dataEstados}
-            value={customerid?.idEstado}
+            value={dataCustomer?.cmbEstado}
+            onChange={handleChange}
+
             >
             </Select>
         </div>

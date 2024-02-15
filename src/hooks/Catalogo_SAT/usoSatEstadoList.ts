@@ -3,7 +3,7 @@ import { GetEstados } from "../../services/Catalogo_SAT/Sat_Estados";
 import {
   type IEstadosResponse,
   type IEstados,
-} from "../../abstraction/Interfazes/IEstados";
+} from "../../abstraction/Interfaces/IEstados";
 interface Props {
   page: number;
   search: string;
