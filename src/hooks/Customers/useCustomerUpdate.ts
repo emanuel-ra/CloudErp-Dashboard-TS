@@ -1,25 +1,20 @@
-import { useCallback, useState, useRef } from "react";
-import { GetCustomer, UpdateCustomer } from "../../services/Customer";
-import {
-  type ICustomersResponse,
-  type ICustomer,
-  type ICustomerUpd
-} from "../../abstraction/Interfazes/ICustomers";
+import { useCallback, useState } from 'react';
+import { type ICustomerUpd } from "../../abstraction/Interfaces/ICustomers";
+import { UpdateCustomer } from '../../services/Customer';
 
 interface Props {
-  formData: ICustomerUpd;
+  formData: ICustomerUpd
 }
 
-
 export const useCustomerUpd = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false)
 
   const updtCustomer = useCallback(async ({ formData }: Props) => {
-    setLoading(true);
+    setLoading(true)
     try {
       const mappedData = {
         id: formData.id,
-        vchCodigo:formData.vchCodigo,
+        vchCodigo: formData.vchCodigo,
         vchNombres: formData.vchNombres,
         vchApellidos: formData.vchApellidos,
         vchTelefonos: formData.vchTelefonos,
@@ -39,17 +34,17 @@ export const useCustomerUpd = () => {
         sat_regimen_fiscal_clave: formData.sat_regimen_fiscal_clave,
         sat_uso_cfdi_clave: formData.sat_uso_cfdi_clave,
         idStatus: formData.idStatus
-      };
+      }
 
-      const response: ICustomerUpd = await UpdateCustomer(mappedData);
+      const response: ICustomerUpd = await UpdateCustomer(mappedData)
       return response
     } catch (error) {
-      console.error('Error al actualizar los datos:', error);
+      console.error('Error al actualizar los datos:', error)
       return error
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  }, []);
+  }, [])
 
-  return { updtCustomer, loading};
-};
+  return { updtCustomer, loading }
+}

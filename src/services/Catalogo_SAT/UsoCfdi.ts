@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { API_URL, ENDPOINT_PRODUCTS, ENDPOINT_USOCFDI } from "../../setup/constants";
-import { IUsoCfdiResponse } from "../../abstraction/Interfazes/IUsoCfdi";
-import { useLoginStore } from "../../stores/auth";
+import { API_URL, ENDPOINT_USOCFDI } from "../../setup/constants";
+import { IUsoCfdiResponse } from "../../abstraction/Interfaces/IUsoCfdi";
 
 interface ListProps {
     page: number;

@@ -1,5 +1,4 @@
-import { useTranslation } from "react-i18next";
-import React, { InputHTMLAttributes } from 'react';
+import  { InputHTMLAttributes } from 'react';
 
 
 interface Props {

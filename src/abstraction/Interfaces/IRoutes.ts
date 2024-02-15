@@ -1,3 +1,3 @@
 export interface IRoutes {
-  routes: [];
+  routes: []
 }

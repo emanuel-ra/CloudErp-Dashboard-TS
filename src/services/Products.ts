@@ -1,31 +1,30 @@
-import axios, { AxiosResponse } from "axios";
-import { API_URL, ENDPOINT_PRODUCTS } from "../setup/constants";
-import { IProductResponse } from "../abstraction/Interfazes/IProducts";
-import { useLoginStore } from "../stores/auth";
+import axios, { AxiosResponse } from 'axios'
+import { IProductResponse } from '../abstraction/Interfaces/IProducts'
+import { API_URL, ENDPOINT_PRODUCTS } from '../setup/constants'
 interface ListProps {
-  page: number;
-  search: string;
+  page: number
+  search: string
 }
 
-export async function GetProducts({
+export async function GetProducts ({
   page,
-  search,
+  search
 }: ListProps): Promise<IProductResponse> {
   try {
     const response: AxiosResponse<IProductResponse> = await axios.post(
       `${API_URL}/V1${ENDPOINT_PRODUCTS}/List`,
       {
         page,
-        search,
+        search
       },
       {
         headers: {
-          "Content-Type": "application/json",
-        },
+          'Content-Type': 'application/json'
+        }
       }
-    );
-    return response.data;
+    )
+    return response.data
   } catch (error) {
-    throw error;
+    throw error
   }
 }

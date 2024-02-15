@@ -1,3 +1,3 @@
 export const RememberMe = () => {
-    return "Remember Me"
+  return 'Remember Me'
 }

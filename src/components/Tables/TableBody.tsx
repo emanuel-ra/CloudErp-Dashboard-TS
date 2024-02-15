@@ -1,7 +1,7 @@
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 export const TableBody = (props: Props) => {
-  const { children } = props;
-  return <tbody className="divide-y divide-gray-200">{children}</tbody>;
-};
+  const { children } = props
+  return <tbody className='divide-y divide-gray-200'>{children}</tbody>
+}
