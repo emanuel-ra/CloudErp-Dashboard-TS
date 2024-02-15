@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { API_URL, ENDPOINT_ESTADO } from "../../setup/constants";
-import { IEstadosResponse } from "../../abstraction/Interfazes/IEstados";
+import { IEstadosResponse } from "../../abstraction/Interfaces/IEstados";
 
 interface ListProps {
     page: number;

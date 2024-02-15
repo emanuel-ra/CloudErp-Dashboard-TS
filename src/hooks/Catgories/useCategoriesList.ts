@@ -3,7 +3,7 @@ import { GetCategories } from "../../services/Categories";
 import {
   type ICatogoriesResponse,
   type ICategorie,
-} from "../../abstraction/Interfazes/ICategories";
+} from "../../abstraction/Interfaces/ICategories";
 interface Props {
   page: number;
   search: string;

@@ -3,7 +3,7 @@ import { GetPaises } from "../../services/Catalogo_SAT/Sat_Paises";
 import {
   type IPaisesResponse,
   type IPaises,
-} from "../../abstraction/Interfazes/IPaises";
+} from "../../abstraction/Interfaces/IPaises";
 interface Props {
   page: number;
   search: string;
