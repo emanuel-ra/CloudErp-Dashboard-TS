@@ -1,20 +1,24 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ProtectedRoutes } from "./ProtectedRoutes";
-import { PublicRoutes } from "./PublicRoutes";
-import { AuthorizeRutes } from "./AuthorizeRutes";
-import { ActionRoutes } from "./ActionRoutes";
-import { OnlyAuthenticateRotes } from "./OnlyAuthenticateRoutes";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { ActionRoutes } from './ActionRoutes'
+import { AuthorizeRutes } from './AuthorizeRutes'
+import { OnlyAuthenticateRotes } from './OnlyAuthenticateRoutes'
+import { ProtectedRoutes } from './ProtectedRoutes'
+import { PublicRoutes } from './PublicRoutes'
 
 export const Routes = () => {
-  const routes = createBrowserRouter([...PublicRoutes, ...authorized]);
+  const routes = createBrowserRouter([
+    ...PublicRoutes,
+    ...authorized
+    // ...(!token ? authorized : []),
+  ])
 
-  return <RouterProvider router={routes} />;
-};
+  return <RouterProvider router={routes} />
+}
 
 const authorized = [
   {
-    path: "/",
+    path: '/',
     element: <ProtectedRoutes />,
-    children: [...AuthorizeRutes, ...OnlyAuthenticateRotes, ...ActionRoutes],
-  },
-];
+    children: [...AuthorizeRutes, ...OnlyAuthenticateRotes, ...ActionRoutes]
+  }
+]

@@ -1,30 +1,28 @@
-import { List, ListItem } from "@tremor/react";
-import { UserGroupIcon } from "@heroicons/react/solid";
-import { LanguageIcon } from "../Icons/Language";
-import { useTranslation } from "react-i18next";
+import { LanguageIcon } from '../Icons/Language'
+import { useTranslation } from 'react-i18next'
 
 export const NavSettings = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
-    <List className="flex shrink flex-col">
-      <ListItem>
+    <ul className='flex shrink flex-col'>
+      <li>
         <a
-          className="w-full flex items-center gap-2 p-2 hover:bg-slate-200"
-          href="#settingAccountSection"
+          className='w-full flex items-center gap-2 p-2 hover:bg-slate-200'
+          href='#settingAccountSection'
         >
-          <UserGroupIcon className="size-6" />
-          {t("settings.account")}
+          {/* <UserGroupIcon className="size-6" /> */}
+          {t('settings.account')}
         </a>
-      </ListItem>
-      <ListItem>
+      </li>
+      <li>
         <a
-          className="w-full flex items-center gap-2 p-2 hover:bg-slate-200"
-          href="#settingLanguageSection"
+          className='w-full flex items-center gap-2 p-2 hover:bg-slate-200'
+          href='#settingLanguageSection'
         >
-          <LanguageIcon _class="size-6" />
-          {t("settings.language")}
+          <LanguageIcon _class='size-6' />
+          {t('settings.language')}
         </a>
-      </ListItem>
-    </List>
-  );
-};
+      </li>
+    </ul>
+  )
+}

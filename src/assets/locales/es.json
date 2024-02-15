@@ -2,13 +2,18 @@
   "language": "Lenguaje",
   "spanish": "Español",
   "english": "Ingles",
+  "search": "Buscar",
   "sideNavBar": {
     "home": "Inicio",
     "catalogues": "Catálogos",
     "products": "Productos",
     "categories": "Categorías",
     "brands": "Marcas",
+    "catalogueSat": "Catalogo SAT",
     "settings": "Configuraciones",
+    "regFiscal": "Regimen Fiscal",
+    "usoCfdi" : "Uso de CFDI 4.0",
+    "client" : "Clientes",
     "logout": "Salir"
   },
   "settings": {
@@ -16,9 +21,34 @@
     "language": "Lenguaje"
   },
   "breadcrumb": {
+    "home": "Inicio",
+    "catalogue": "Catalogo",
+    "brand": "Marca",
+    "categories": "Categorías",
     "settings": "Configuraciones",
     "products": "Productos",
     "create": "Crear",
+    "regFiscal": "Regimen Fiscal",
+    "UsoCfdi" : "Uso de CFDI 4.0",
+    "Cliente" : "Clientes",
     "edit": "Editar"
-  }
+  },
+  "loginPage": {
+    "login": "Iniciar Session",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "type your username": "Ingresa tu usuario",
+    "type your password": "Ingresa tu contraseña"
+  },
+  "errors": {
+    "something went wrong": "Algo salio mal"
+  },
+  "breadcrumb.": "",
+  "code": "Código",
+  "name": "Nombre",
+  "price": "Precio",
+  "price wholesale": "Precio al por mayor",
+  "price stockist": "Precio distribuidor",
+  "price vip": "Precio Vip",
+  "price box": "Precio Caja"
 }

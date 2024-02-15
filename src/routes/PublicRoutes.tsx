@@ -1,11 +1,11 @@
-import { LoginPage } from "../pages/LoginPage";
+import { LoginPage } from '../pages/LoginPage'
 export const PublicRoutes = [
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: '/login',
+    element: <LoginPage />
   },
   {
-    path: "/remember/me",
-    element: "RememberMe",
-  },
-];
+    path: '/remember/me',
+    element: 'RememberMe'
+  }
+]
