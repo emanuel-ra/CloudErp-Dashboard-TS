@@ -1,5 +1,4 @@
 import { useEffect, useId, useState } from "react";
-
 import { Card } from "../../components/Card";
 import { useCustomerList } from "../../hooks/Customers/useCustomerList";
 import { usedeleteCustomerID } from "../../hooks/Customers/useCustomerDelete";
