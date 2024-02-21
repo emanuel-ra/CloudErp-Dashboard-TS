@@ -1,20 +1,20 @@
 //* API
-export const API_URL = "https://localhost:7209/api";
-export const ENDPOINT_LOGIN = "/Authentication/login";
+export const API_URL = import.meta.env.VITE_API_URL;
+export const ENDPOINT_LOGIN = import.meta.env.VITE_ENDPOINT_LOGIN;
 
-export const ENDPOINT_PRODUCTS = "/Product";
-export const ENDPOINT_PRODUCTS_STORE = "/Product/Create";
+export const ENDPOINT_PRODUCTS = import.meta.env.VITE_ENDPOINT_PRODUCTS;
+export const ENDPOINT_PRODUCTS_STORE = import.meta.env.VITE_ENDPOINT_PRODUCTS_STORE;
 
-export const ENDPOINT_USOCFDI = "/Sat_UsoCfdi";
-export const ENDPOINT_REGIMENFISCAL = "/Sat_RegimenFiscal";
-export const ENDPOINT_PAISES = "/Sat_catPaises";
-export const ENDPOINT_ESTADO = "/Sat_catEstados";
+export const ENDPOINT_USOCFDI = import.meta.env.VITE_ENDPOINT_USOCFDI;
+export const ENDPOINT_REGIMENFISCAL = import.meta.env.VITE_ENDPOINT_REGIMENFISCAL;
+export const ENDPOINT_PAISES = import.meta.env.VITE_ENDPOINT_PAISES;
+export const ENDPOINT_ESTADO = import.meta.env.VITE_ENDPOINT_ESTADO;
 
+export const ENDPOINT_CATEGORIES = import.meta.env.VITE_ENDPOINT_CATEGORIES;
 
+export const ENDPOINT_BRAND = import.meta.env.VITE_ENDPOINT_BRAND
 
-export const ENDPOINT_CATEGORIES = "/Category/List";
-
-export const ENDPOINT_CUSTOMER = "/Customers"
+export const ENDPOINT_CUSTOMER = import.meta.env.VITE_ENDPOINT_CUSTOMER;
 
 // * SESSIONS
 export const PREFIX_STORAGE = "__CE";

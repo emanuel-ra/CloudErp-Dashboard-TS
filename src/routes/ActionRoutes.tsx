@@ -3,6 +3,8 @@ import { ProductsCreatePage } from "../pages/Products/ProductsCreatePage";
 import { ProductsEditPage } from "../pages/Products/ProductsEditPage";
 import { CustomerNewPage } from "../pages/Customers/CustomerNewPage";
 import { CustomerUpdatePage } from "../pages/Customers/CustomerUpdatePage";
+import { CategoriesNewPage } from "../pages/Categories/CategoriesNewPage";
+
 
 export const ActionRoutes = [
   {
@@ -29,4 +31,10 @@ export const ActionRoutes = [
     path: "/Cliente/Actualizar/:id",
     element: <CustomerUpdatePage />,
   },
+  {
+    icon: <TagIcon />,
+    label: "",
+    path: "/categories/create",
+    element: <CategoriesNewPage />,
+  }
 ];
