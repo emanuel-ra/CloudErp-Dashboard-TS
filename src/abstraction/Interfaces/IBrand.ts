@@ -1,24 +1,23 @@
-export interface ICatogoriesResponse {
+export interface IBrandResponse {
     page: number;
     totalPages: number;
     sizePage: number;
-    data: ICategorie[];
+    data: IBrand[];
 }
   
-  export interface ICategorie {
+  export interface IBrand {
     id: number;
     name: string;
     statusId: number;
     statusName: string;
 }
 
-  export interface ICategorieNew{
+  export interface IBrandNew{
     parentId: number;
     name: string;
     Logo: string;
     isEnableEccomerce: number;
     statusId: number;
-
 }
   
   export enum Status {
