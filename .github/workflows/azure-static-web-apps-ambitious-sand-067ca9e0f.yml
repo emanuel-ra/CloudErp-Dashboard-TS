@@ -33,7 +33,7 @@ jobs:
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
-          VITE_ENVIRONMENT_MODE: "Productive"
+          VITE_ENVIRONMENT_MODE: "Production"
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
   close_pull_request_job:
