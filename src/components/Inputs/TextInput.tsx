@@ -24,7 +24,7 @@ export const TextInput = (props: Props) => {
     <div className='flex flex-col gap-y-2'>
       <input
         type='text'
-        className='w-full lg:min-h-11 py-1 px-2 rounded border-[1px] text-slate-900 bg-white dark:bg-gray-900 dark:text-white dark:border-white/90 '
+        className='w-full lg:min-h-11 py-1 px-2 rounded border-[1px] text-slate-900 bg-white dark:bg-gray-900 dark:text-white dark:border-white/90 capitalize '
         name={name}
         id={id}
         placeholder={placeholder}
