@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-    type IProduct,
-    type IProductResponse
+  type IProduct,
+  type IProductResponse
 } from '../../abstraction/Interfaces/IProducts'
 import { GetProducts } from '../../services/Products'
 interface Props {

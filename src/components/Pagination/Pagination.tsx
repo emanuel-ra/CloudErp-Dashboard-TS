@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
 import {
-    type IPageButton,
-    type IPages,
-    type IPagination
+  type IPageButton,
+  type IPages,
+  type IPagination
 } from '../../abstraction/Interfaces/IPagination'
 import { ChevronLeft, ChevronRight } from '../Icons/Chevron'
 
