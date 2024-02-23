@@ -1,32 +1,31 @@
-import axios, { AxiosResponse } from "axios";
-import { API_URL, ENDPOINT_BRAND } from "../setup/constants";
-import { IBrandResponse } from "../abstraction/Interfaces/IBrand";
+import axios, { AxiosResponse } from 'axios'
+import { API_URL, ENDPOINT_BRAND } from '../setup/constants'
+import { IBrandResponse } from '../abstraction/Interfaces/IBrand'
 
 interface ListProps {
-    page: number;
-    search: string;
-  }
+  page: number
+  search: string
+}
 
-export async function GetBrand({
-    page,
-    search,
-}:ListProps): Promise<IBrandResponse> {
-    try{
-        const response: AxiosResponse<IBrandResponse> = await axios.post(
+export async function GetBrand ({
+  page,
+  search
+}: ListProps): Promise<IBrandResponse> {
+  try {
+    const response: AxiosResponse<IBrandResponse> = await axios.post(
             `${API_URL}/V1${ENDPOINT_BRAND}`,
             {
-                page,
-                search,
+              page,
+              search
             },
             {
-                headers: {
-                    "Content-Type": "application/json",
-                },
+              headers: {
+                'Content-Type': 'application/json'
+              }
             }
-        );
-        return response.data
-    } catch (error) {
-        throw error;
-    }
-   
+    )
+    return response.data
+  } catch (error) {
+    throw error
+  }
 }

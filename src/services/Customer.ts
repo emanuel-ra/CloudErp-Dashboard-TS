@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
-import { ICustomer, ICustomerNew, ICustomerUpd, ICustomersResponse } from '../abstraction/Interfaces/ICustomers';
-import { API_URL, ENDPOINT_CUSTOMER } from '../setup/constants';
+import axios, { AxiosResponse } from 'axios'
+import { ICustomer, ICustomerNew, ICustomerUpd, ICustomersResponse } from '../abstraction/Interfaces/ICustomers'
+import { API_URL, ENDPOINT_CUSTOMER } from '../setup/constants'
 
 export interface ListProps {
   page: number
@@ -47,20 +47,20 @@ export async function UpdateCustomer (updatedData: any): Promise<ICustomerUpd> {
   }
 }
 
-export async function CreateCustomer(customer: ICustomerNew): Promise<ICustomerNew> {
+export async function CreateCustomer (customer: ICustomerNew): Promise<ICustomerNew> {
   try {
     const response: AxiosResponse<ICustomerNew> = await axios.post(
       `${API_URL}/V1${ENDPOINT_CUSTOMER}/create`,
       customer,
       {
         headers: {
-          "Content-Type": "application/json",
-        },
+          'Content-Type': 'application/json'
+        }
       }
-    );
-    return response.data;
+    )
+    return response.data
   } catch (error) {
-    throw error;
+    throw error
   }
 }
 

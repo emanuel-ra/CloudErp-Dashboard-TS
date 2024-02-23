@@ -11,6 +11,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    "Parsing error: The keyword 'interface' is reserved": 'off',
     '@typescript-eslint/restrict-plus-operands': [
       'error',
       { checkCompoundAssignments: true }

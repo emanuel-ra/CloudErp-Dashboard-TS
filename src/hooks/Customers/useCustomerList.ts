@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-    type ICustomer,
-    type ICustomersResponse
+  type ICustomer,
+  type ICustomersResponse
 } from '../../abstraction/Interfaces/ICustomers'
 import { GetCustomer } from '../../services/Customer'
 interface Props {

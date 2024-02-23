@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-    type IBrand,
-    type IBrandResponse
+  type IBrand,
+  type IBrandResponse
 } from '../../abstraction/Interfaces/IBrand'
 import { GetBrand } from '../../services/Brand'
 interface Props {

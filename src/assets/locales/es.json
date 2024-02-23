@@ -4,6 +4,9 @@
   "english": "Ingles",
   "search": "Buscar",
   "sideNavBar": {
+    "system": "Sistema",
+    "users": "Usuarios",
+    "roles": "Roles",
     "home": "Inicio",
     "catalogues": "Catálogos",
     "products": "Productos",
@@ -12,8 +15,8 @@
     "catalogueSat": "Catalogo SAT",
     "settings": "Configuraciones",
     "regFiscal": "Regimen Fiscal",
-    "usoCfdi" : "Uso de CFDI 4.0",
-    "client" : "Clientes",
+    "usoCfdi": "Uso de CFDI 4.0",
+    "client": "Clientes",
     "logout": "Salir"
   },
   "settings": {
@@ -24,13 +27,14 @@
     "home": "Inicio",
     "catalogue": "Catalogo",
     "brand": "Marca",
+    "users": "Usuarios",
     "categories": "Categorías",
     "settings": "Configuraciones",
     "products": "Productos",
     "create": "Crear",
     "regFiscal": "Regimen Fiscal",
-    "UsoCfdi" : "Uso de CFDI 4.0",
-    "Cliente" : "Clientes",
+    "UsoCfdi": "Uso de CFDI 4.0",
+    "Cliente": "Clientes",
     "edit": "Editar"
   },
   "loginPage": {
@@ -43,10 +47,16 @@
   "errors": {
     "something went wrong": "Algo salio mal"
   },
+  "list of products": "listado de productos",
+  "list of users": "listado de usuarios",
   "breadcrumb.": "",
   "code": "Código",
   "name": "Nombre",
   "price": "Precio",
+  "username": "Usuario",
+  "email": "Email",
+  "role": "Role",
+  "status": "Estado",
   "price wholesale": "Precio al por mayor",
   "price stockist": "Precio distribuidor",
   "price vip": "Precio Vip",

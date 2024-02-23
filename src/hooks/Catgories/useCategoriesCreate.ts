@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import {
-    type ICategorieNew
+  type ICategorieNew
 } from '../../abstraction/Interfaces/ICategories'
 import { CreateCagories } from '../../services/Categories'
 
@@ -16,10 +16,10 @@ export const useCategoriesCreate = () => {
     try {
       const mappedData = {
         parentId: 0,
-        name : formData.name,
-        Logo : formData.Logo,
+        name: formData.name,
+        Logo: formData.Logo,
         isEnableEccomerce: formData.isEnableEccomerce,
-        statusId : formData.statusId
+        statusId: formData.statusId
       }
 
       const response: ICategorieNew = await CreateCagories(mappedData)

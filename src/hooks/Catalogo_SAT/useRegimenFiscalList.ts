@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-    type IRegimenFiscal,
-    type IRegimenFiscalResponse
+  type IRegimenFiscal,
+  type IRegimenFiscalResponse
 } from '../../abstraction/Interfaces/IRegimenFiscal'
 import { GetRegimenFiscal } from '../../services/Catalogo_SAT/RegimenFiscal'
 interface Props {

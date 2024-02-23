@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-    type IUsoCfdi,
-    type IUsoCfdiResponse
+  type IUsoCfdi,
+  type IUsoCfdiResponse
 } from '../../abstraction/Interfaces/IUsoCfdi'
 import { GetUsoCfdi } from '../../services/Catalogo_SAT/UsoCfdi'
 interface Props {
