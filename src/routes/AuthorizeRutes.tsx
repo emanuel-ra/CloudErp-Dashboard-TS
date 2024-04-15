@@ -8,6 +8,7 @@ import { UsoCfdiPage } from '../pages/Catalogo_SAT/UsoCFDIPage'
 import { CategoriesPage } from '../pages/Categories/CategoriesPage'
 import { CustomerPage } from '../pages/Customers/CustomersPage'
 import { ProductsPage } from '../pages/Products/ProductsPage'
+import { RolePage } from '../pages/Roles/RolePage'
 import { UsersPage } from '../pages/Users/UsersPage'
 
 export const AuthorizeRutes = [
@@ -31,7 +32,7 @@ export const AuthorizeRutes = [
         icon: <TagIcon />,
         label: 'sideNavBar.roles',
         path: '/products',
-        element: <ProductsPage />
+        element: <RolePage />
       }
     ]
   },

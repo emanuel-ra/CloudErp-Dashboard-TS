@@ -39,7 +39,7 @@ export const UsersPage = () => {
     <Card className={`grow flex flex-col  gap-y-2`}>
       <div className='flex justify-between items-center p-4 border-b mb-5'>
         <h1 className='text-3xl font-bold capitalize'>{t('list of users')}</h1>
-        <ButtonLinkCircle path='user/create'>
+        <ButtonLinkCircle path='/users/create'>
           <PeoplePlusIcon />
         </ButtonLinkCircle>
       </div>

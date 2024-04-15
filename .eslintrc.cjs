@@ -11,6 +11,18 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+        singleQuote: true,
+        parser: 'typescript',
+        semi: [0, 'always']
+      }
+    ],
+    indent: [2, 'tab'],
+    'no-tabs': 0,
+    'no-empty-function': 'error',
     "Parsing error: The keyword 'interface' is reserved": 'off',
     '@typescript-eslint/restrict-plus-operands': [
       'error',

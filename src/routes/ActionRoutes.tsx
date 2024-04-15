@@ -1,11 +1,18 @@
 import { TagIcon } from '@heroicons/react/solid'
-import { ProductsCreatePage } from '../pages/Products/ProductsCreatePage'
-import { ProductsEditPage } from '../pages/Products/ProductsEditPage'
+import { CategoriesNewPage } from '../pages/Categories/CategoriesNewPage'
 import { CustomerNewPage } from '../pages/Customers/CustomerNewPage'
 import { CustomerUpdatePage } from '../pages/Customers/CustomerUpdatePage'
-import { CategoriesNewPage } from '../pages/Categories/CategoriesNewPage'
+import { ProductsCreatePage } from '../pages/Products/ProductsCreatePage'
+import { ProductsEditPage } from '../pages/Products/ProductsEditPage'
+import { UsersCreatePage } from '../pages/Users/UsersCreatePage'
 
 export const ActionRoutes = [
+  {
+    icon: <TagIcon />,
+    label: 'Crear Cliente',
+    path: '/users/create',
+    element: <UsersCreatePage />
+  },
   {
     icon: <TagIcon />,
     label: 'Editar Product',
