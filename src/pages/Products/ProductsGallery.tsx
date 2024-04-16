@@ -52,10 +52,6 @@ export const ProductsGallery = () => {
     if (!parseId) return
 
     uploadImages({ id: parseId, images: acceptedFiles })
-    // const formData = new FormData()
-    // acceptedFiles.map((file) => {
-    //   formData.append('file', file)
-    // })
   }
 
   useEffect(() => {
