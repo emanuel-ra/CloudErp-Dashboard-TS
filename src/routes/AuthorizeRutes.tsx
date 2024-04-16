@@ -16,7 +16,7 @@ export const AuthorizeRutes = [
     icon: <TagIcon />,
     label: 'sideNavBar.home',
     path: '/',
-    element: 'HomePage'
+    element: 'HomePage',
   },
   {
     icon: <HomeIcon size={5} />,
@@ -26,15 +26,15 @@ export const AuthorizeRutes = [
         icon: <TagIcon />,
         label: 'sideNavBar.users',
         path: '/users',
-        element: <UsersPage />
+        element: <UsersPage />,
       },
       {
         icon: <TagIcon />,
         label: 'sideNavBar.roles',
-        path: '/products',
-        element: <RolePage />
-      }
-    ]
+        path: '/roles',
+        element: <RolePage />,
+      },
+    ],
   },
   {
     icon: <HomeIcon size={5} />,
@@ -44,21 +44,21 @@ export const AuthorizeRutes = [
         icon: <TagIcon />,
         label: 'sideNavBar.products',
         path: '/products',
-        element: <ProductsPage />
+        element: <ProductsPage />,
       },
       {
         icon: <TagIcon />,
         label: 'sideNavBar.categories',
         path: '/catalogue/categories',
-        element: <CategoriesPage />
+        element: <CategoriesPage />,
       },
       {
         icon: <TagIcon />,
         label: 'sideNavBar.brands',
         path: '/brand',
-        element: <BrandsPage />
-      }
-    ]
+        element: <BrandsPage />,
+      },
+    ],
   },
   {
     icon: <ScaleIcon size={5} />,
@@ -68,14 +68,14 @@ export const AuthorizeRutes = [
         icon: <MinusIcon />,
         label: 'sideNavBar.usoCfdi',
         path: '/UsoCfdi',
-        element: <UsoCfdiPage />
-      }
-    ]
+        element: <UsoCfdiPage />,
+      },
+    ],
   },
   {
     icon: <UserGroupIcon />,
     label: 'sideNavBar.client',
     path: '/Cliente',
-    element: <CustomerPage />
-  }
+    element: <CustomerPage />,
+  },
 ]

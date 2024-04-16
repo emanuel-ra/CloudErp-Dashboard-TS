@@ -2,6 +2,9 @@ import { useEffect, useId, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../../components/Buttons/Button'
 import { Card } from '../../components/Card'
+import { Dropdown } from '../../components/Dropdown'
+import { DropdownGroup } from '../../components/Dropdown/DropdownGroup'
+import { DropdownLink } from '../../components/Dropdown/DropdownLink'
 import { SearchCircle } from '../../components/Icons/SearchIcon'
 import { TextInput } from '../../components/Inputs/TextInput'
 import { Pagination } from '../../components/Pagination/Pagination'
@@ -42,7 +45,10 @@ export const ProductsPage = () => {
       <h1>List of Products</h1>
       <div className='flex gap-2'>
         <div className='grow'>
-          <TextInput placeholder={`${t('search')}....`} id={searchInputId} />
+          <TextInput
+            placeholder={`${t('search')}....`}
+            id={searchInputId}
+          />
         </div>
         <Button Click={handleSearch}>
           <SearchCircle size={6} /> {t('search')}
@@ -52,6 +58,7 @@ export const ProductsPage = () => {
       <Table>
         <Thead>
           <tr>
+            <TableHeadCell>{t('image')}</TableHeadCell>
             <TableHeadCell>{t('code')}</TableHeadCell>
             <TableHeadCell>{t('name')}</TableHeadCell>
             <TableHeadCell className='text-right'>{t('price')}</TableHeadCell>
@@ -67,11 +74,23 @@ export const ProductsPage = () => {
             <TableHeadCell className='text-right'>
               {t('price box')}
             </TableHeadCell>
+            <TableHeadCell className='text-right'>{t('action')}</TableHeadCell>
           </tr>
         </Thead>
         <TableBody>
           {products.map((item) => (
             <tr key={item.id}>
+              <TableCell>
+                {item?.images[0]?.imageUrl ? (
+                  <img
+                    src={item?.images[0]?.imageUrl}
+                    alt={item.name}
+                    className='size-20 rounded shadow border border-white hover:scale-105 transition ease-in-out'
+                  />
+                ) : (
+                  <span>No image</span>
+                )}
+              </TableCell>
               <TableCell>{item.code}</TableCell>
               <TableCell>{item.name}</TableCell>
               <TableCell className='text-right'>
@@ -88,6 +107,17 @@ export const ProductsPage = () => {
               </TableCell>
               <TableCell className='text-right'>
                 {NumberFormat(item.priceBox)}
+              </TableCell>
+              <TableCell className='text-right'>
+                <Dropdown label='Actions'>
+                  <DropdownGroup label='Gallery'>
+                    <DropdownLink
+                      href={`/products/gallery/${item.id}`}
+                      label='Upload'
+                      data={item}
+                    />
+                  </DropdownGroup>
+                </Dropdown>
               </TableCell>
             </tr>
           ))}

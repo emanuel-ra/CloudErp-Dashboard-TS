@@ -4,6 +4,7 @@ import { CustomerNewPage } from '../pages/Customers/CustomerNewPage'
 import { CustomerUpdatePage } from '../pages/Customers/CustomerUpdatePage'
 import { ProductsCreatePage } from '../pages/Products/ProductsCreatePage'
 import { ProductsEditPage } from '../pages/Products/ProductsEditPage'
+import { ProductsGallery } from '../pages/Products/ProductsGallery'
 import { UsersCreatePage } from '../pages/Users/UsersCreatePage'
 
 export const ActionRoutes = [
@@ -11,36 +12,42 @@ export const ActionRoutes = [
     icon: <TagIcon />,
     label: 'Crear Cliente',
     path: '/users/create',
-    element: <UsersCreatePage />
+    element: <UsersCreatePage />,
   },
   {
     icon: <TagIcon />,
     label: 'Editar Product',
     path: '/products/edit/:id',
-    element: <ProductsEditPage />
+    element: <ProductsEditPage />,
   },
   {
     icon: <TagIcon />,
     label: 'Crear Producto',
     path: '/products/create',
-    element: <ProductsCreatePage />
+    element: <ProductsCreatePage />,
+  },
+  {
+    icon: <TagIcon />,
+    label: 'sideNavBar.products',
+    path: '/products/gallery/:id',
+    element: <ProductsGallery />,
   },
   {
     icon: <TagIcon />,
     label: '',
     path: '/Cliente/create',
-    element: <CustomerNewPage />
+    element: <CustomerNewPage />,
   },
   {
     icon: <TagIcon />,
     label: '',
     path: '/Cliente/Actualizar/:id',
-    element: <CustomerUpdatePage />
+    element: <CustomerUpdatePage />,
   },
   {
     icon: <TagIcon />,
     label: '',
     path: '/categories/create',
-    element: <CategoriesNewPage />
-  }
+    element: <CategoriesNewPage />,
+  },
 ]
