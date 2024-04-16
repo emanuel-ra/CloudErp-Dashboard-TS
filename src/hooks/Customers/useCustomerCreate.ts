@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import {
-    type ICustomerNew
+  type ICustomerNew
 } from '../../abstraction/Interfaces/ICustomers'
 import { CreateCustomer } from '../../services/Customer'
 

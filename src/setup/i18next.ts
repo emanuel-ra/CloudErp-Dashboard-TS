@@ -8,7 +8,7 @@ const resources = Object.fromEntries(
 )
 
 i18n.use(initReactI18next).init({
-  debug: true,
+  debug: false,
   resources,
   lng: 'es'
 })

@@ -32,9 +32,21 @@ export interface IProduct {
   externalId: number
   createdAt: Date
   updatedAt: Date
+  images: Image[]
   status: Status
 }
 
 export enum Status {
   Activo = 'Activo',
+}
+
+
+export interface Image {
+    id: number;
+    productId: number;
+    imageUrl: string;
+    userId: number;
+    createdAt: string;
+    updatedAt: string;
+    product: any;
 }

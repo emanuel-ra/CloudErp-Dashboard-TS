@@ -1,27 +1,26 @@
 export interface ICatogoriesResponse {
-    page: number;
-    totalPages: number;
-    sizePage: number;
-    data: ICategorie[];
-}
-  
-  export interface ICategorie {
-    id: number;
-    name: string;
-    statusId: number;
-    statusName: string;
+  page: number
+  totalPages: number
+  sizePage: number
+  data: ICategorie[]
 }
 
-  export interface ICategorieNew{
-    parentId: number;
-    name: string;
-    Logo: string;
-    isEnableEccomerce: number;
-    statusId: number;
+export interface ICategorie {
+  id: number
+  name: string
+  statusId: number
+  statusName: string
+}
+
+export interface ICategorieNew {
+  parentId: number
+  name: string
+  Logo: string
+  isEnableEccomerce: number
+  statusId: number
 
 }
-  
-  export enum Status {
-    Activo = "Activo",
+
+export enum Status {
+  Activo = 'Activo',
 }
-  

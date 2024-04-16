@@ -1,6 +1,6 @@
-import { useCallback, useState } from 'react';
-import { type ICustomerUpd } from "../../abstraction/Interfaces/ICustomers";
-import { UpdateCustomer } from '../../services/Customer';
+import { useCallback, useState } from 'react'
+import { type ICustomerUpd } from '../../abstraction/Interfaces/ICustomers'
+import { UpdateCustomer } from '../../services/Customer'
 
 interface Props {
   formData: ICustomerUpd
