@@ -1,25 +1,13 @@
-import { InputHTMLAttributes } from 'react';
-
 interface Props {
-  name?: string;
-  id?: string;
-  placeholder?: string;
-  error?: boolean;
-  errorMessage?: string;
-}
-
-interface InpProps extends InputHTMLAttributes<HTMLInputElement> {
-  name?: string;
-  id?: string;
-  placeholder?: string;
-  error?: boolean;
-  errorMessage?: string;
-  value?: string;
-  // [key: string] : any;
+  name?: string
+  id?: string
+  placeholder?: string
+  error?: boolean
+  errorMessage?: string
 }
 
 export const EmailInput = (props: Props) => {
-  const { id, name, placeholder, error, errorMessage } = props;
+  const { id, name, placeholder, error, errorMessage } = props
   return (
     <div className='flex flex-col gap-y-2'>
       <input
@@ -31,6 +19,5 @@ export const EmailInput = (props: Props) => {
       />
       {error && <small className='text-red-600 px-2'>{errorMessage}</small>}
     </div>
-  );
-};
-
+  )
+}
