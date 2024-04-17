@@ -19,6 +19,7 @@ export const ButtonCircle = (props: Props) => {
                 text-white
                 hover:bg-${variant}-700
                 hover:text-white 
+                hover:scale-110
                 focus:ring-${variant}-300 
                 focus:ring-4
                 focus:outline-none        
@@ -28,6 +29,7 @@ export const ButtonCircle = (props: Props) => {
                 text-center 
                 inline-flex 
                 items-center
+                transition ease-in-out
                 `}
     >
       {children}
