@@ -1,6 +1,6 @@
 import { CloudDownloadIcon, PlusIcon, TrashIcon } from '@heroicons/react/solid'
 import { useEffect } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { Image } from '../../abstraction/Interfaces/IProducts'
 import { Button } from '../../components/Buttons/Button'
 import { Card } from '../../components/Card'
@@ -12,11 +12,9 @@ export const ProductsGallery = () => {
   const { id } = useParams()
   const location = useLocation()
   const { images, code, name } = location.state
-  const navigate = useNavigate()
 
   if (!id) {
-    navigate('/products')
-    return
+    return <div>error</div>
   }
 
   const { files, fileRejections, acceptedFiles, getRootProps, getInputProps } =
@@ -32,7 +30,7 @@ export const ProductsGallery = () => {
   const thumbsUploaded = images?.map((image: Image) => (
     <>
       <div
-        className='relative group'
+        className='relative group cursor-pointer'
         key={image.id}
       >
         <img
@@ -100,8 +98,10 @@ export const ProductsGallery = () => {
           </div>
         </div>
 
-        <aside className='flex flex-row flex-wrap mt-4 '>{thumbs}</aside>
-        <div className='flex flex-row flex-wrap gap-x-3'>{thumbsUploaded}</div>
+        <aside className='flex flex-row flex-wrap mt-4 gap-x-3'>
+          {thumbsUploaded}
+          {thumbs}
+        </aside>
         {fileRejections.length > 0 && (
           <div className='w-full flex items-center justify-center bg-red-500/80 dark:bg-red-800 text-white py-4 rounded shadow border-2 border-slate-800 dark:border-white border-dashed'>
             <span className='font-semibold text-xl'>
