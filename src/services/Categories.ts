@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
+import { ICategorieNew, ICatogoriesResponse, IParentsCategories } from '../abstraction/Interfaces/ICategories'
 import { API_URL, ENDPOINT_CATEGORIES } from '../setup/constants'
-import { ICatogoriesResponse, ICategorieNew } from '../abstraction/Interfaces/ICategories'
 
 interface ListProps {
   page: number
@@ -26,6 +26,22 @@ export async function GetCategories ({
     )
     return response.data
   } catch (error) {
+    throw error
+  }
+}
+
+export async function GetParentsService(){
+  try{
+    const response: AxiosResponse<IParentsCategories[]> = await axios.get(
+      `${API_URL}/V1${ENDPOINT_CATEGORIES}/List/Parents`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+    return response.data
+  }catch (error) {
     throw error
   }
 }

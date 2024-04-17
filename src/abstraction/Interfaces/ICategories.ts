@@ -21,6 +21,12 @@ export interface ICategorieNew {
 
 }
 
+
+export interface IParentsCategories {
+  id:number
+  name:string
+}
+
 export enum Status {
   Activo = 'Activo',
 }
