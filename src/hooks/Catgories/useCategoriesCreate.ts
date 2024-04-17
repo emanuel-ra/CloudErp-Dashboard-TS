@@ -1,32 +1,23 @@
 import { useCallback, useState } from 'react'
-import {
-  type ICategorieNew
-} from '../../abstraction/Interfaces/ICategories'
-import { CreateCagories } from '../../services/Categories'
+import { NewCategoryProps } from '../../abstraction/Interfaces/ICategories'
+import { CreateCategoryService } from '../../services/Categories'
 
-interface Props {
-  formData: ICategorieNew
-}
+
 
 export const useCategoriesCreate = () => {
   const [loading, setLoading] = useState<boolean>(false)
 
-  const createCategories = useCallback(async ({ formData }: Props) => {
+  const createCategories = useCallback(async (props: NewCategoryProps):Promise<boolean> => {
     setLoading(true)
-    try {
-      const mappedData = {
-        parentId: 0,
-        name: formData.name,
-        Logo: formData.Logo,
-        isEnableEccomerce: formData.isEnableEccomerce,
-        statusId: formData.statusId
+    try {   
+      const response = await CreateCategoryService(props)
+      if(response.status===200){
+        return true
       }
-
-      const response: ICategorieNew = await CreateCagories(mappedData)
-      return response
-    } catch (error) {
-      console.error('Error al actualizar los datos:', error)
-      return error
+      return false
+    } catch {
+      //console.error('Error al actualizar los datos:', error)
+      return false
     } finally {
       setLoading(false)
     }

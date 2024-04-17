@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { ICategorieNew, ICatogoriesResponse, IParentsCategories } from '../abstraction/Interfaces/ICategories'
+import { ICatogoriesResponse, IParentsCategories, NewCategoryProps, ResponseNewCategory } from '../abstraction/Interfaces/ICategories'
 import { API_URL, ENDPOINT_CATEGORIES } from '../setup/constants'
 
 interface ListProps {
@@ -46,18 +46,20 @@ export async function GetParentsService(){
   }
 }
 
-export async function CreateCagories (category: ICategorieNew): Promise<ICategorieNew> {
+
+
+export async function CreateCategoryService (props: NewCategoryProps): Promise<AxiosResponse<ResponseNewCategory>> {
   try {
-    const response: AxiosResponse<ICategorieNew> = await axios.post(
+    const response: AxiosResponse = await axios.post(
         `${API_URL}/V1${ENDPOINT_CATEGORIES}/create`,
-        category,
+        props,
         {
           headers: {
             'Content-Type': 'application/json'
           }
         }
     )
-    return response.data
+    return response
   } catch (error) {
     throw error
   }
