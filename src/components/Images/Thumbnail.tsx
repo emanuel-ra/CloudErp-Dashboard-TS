@@ -8,19 +8,17 @@ export const Thumbnail = (props: Props) => {
 
   return (
     <div
-      className='flex border rounded border-dashed border-slate-800 m-2 w-28 box-border'
+      className='relative'
       key={file.name}
     >
-      <div className='flex min-w-0 overflow-hidden'>
-        <img
-          src={file.preview}
-          className='block w-auto overflow-hidden'
-          // Revoke data uri after image is loaded
-          onLoad={() => {
-            URL.revokeObjectURL(file.preview)
-          }}
-        />
-      </div>
+      <img
+        src={file.preview}
+        className='w-24 h-auto overflow-hidden rounded'
+        // Revoke data uri after image is loaded
+        onLoad={() => {
+          URL.revokeObjectURL(file.preview)
+        }}
+      />
     </div>
   )
 }
