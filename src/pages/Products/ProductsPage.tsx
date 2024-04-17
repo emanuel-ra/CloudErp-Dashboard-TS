@@ -81,7 +81,7 @@ export const ProductsPage = () => {
           {products.map((item) => (
             <tr key={item.id}>
               <TableCell>
-                {item?.images[0]?.imageUrl ? (
+                {item?.images.length > 0 ? (
                   <img
                     src={item?.images[0]?.imageUrl}
                     alt={item.name}
