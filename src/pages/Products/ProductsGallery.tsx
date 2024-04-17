@@ -31,11 +31,13 @@ export const ProductsGallery = () => {
 
   const thumbsUploaded = images?.map((image: Image) => (
     <>
-      <div className='relative group'>
+      <div
+        className='relative group'
+        key={image.id}
+      >
         <img
           className='w-24 h-auto overflow-hidden rounded'
           src={image.imageUrl}
-          key={image.id}
         />
         <button className='hidden group-hover:block bg-red-500 rounded-full absolute top-1 right-1 p-1 shadow border hover:bg-red-400 hover:scale-105'>
           <TrashIcon className='size-6' />
