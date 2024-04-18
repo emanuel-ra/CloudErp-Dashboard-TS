@@ -1,22 +1,25 @@
-import React from "react";
+import React from 'react'
 
 interface Props {
-  children: React.ReactNode;
-  title: string;
-  variant?: 'blue' | 'red' | 'yellow' | 'yellow' | 'green';
+  children: React.ReactNode
+  title: string
+  variant?: 'blue' | 'red' | 'yellow' | 'yellow' | 'green'
   type?: 'button' | 'submit'
+  onClick?: () => void
 }
 
-export const ButtonCircle = (props:Props) => {
-    const { children, title, variant = 'blue', type='button' } = props;
-    return (
-      <button
-        title={title}
-        type={type}
-        className={`bg-${variant}-700/90 
+export const ButtonCircle = (props: Props) => {
+  const { children, title, variant = 'blue', type = 'button', onClick } = props
+  return (
+    <button
+      onClick={onClick}
+      title={title}
+      type={type}
+      className={`bg-${variant}-700/90 
                 text-white
                 hover:bg-${variant}-700
                 hover:text-white 
+                hover:scale-110
                 focus:ring-${variant}-300 
                 focus:ring-4
                 focus:outline-none        
@@ -26,9 +29,10 @@ export const ButtonCircle = (props:Props) => {
                 text-center 
                 inline-flex 
                 items-center
+                transition ease-in-out
                 `}
-      >
-        {children}
-      </button>
-    );
+    >
+      {children}
+    </button>
+  )
 }
