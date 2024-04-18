@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
 import { Card } from '../../components/Card'
 import { BadgeGreen, BadgeRed } from '../../components/Span/Badges'
 import { Table } from '../../components/Tables/Table'
@@ -8,7 +7,9 @@ import { TableBody } from '../../components/Tables/TableBody'
 import { Thead } from '../../components/Tables/Thead'
 import { useCategoriesList } from '../../hooks/Catgories/useCategoriesList'
 
+import { PlusIcon } from '@heroicons/react/solid'
 import 'sweetalert2/dist/sweetalert2.css'
+import { ButtonLinkCircle } from '../../components/Buttons/ButtonLinkCircle'
 import { Pagination } from '../../components/Pagination/Pagination'
 import { TableCell } from '../../components/Tables/TableCell'
 import { TableHeadCell } from '../../components/Tables/TableHeadCell'
@@ -32,29 +33,12 @@ export const CategoriesPage = () => {
     <Card className='grow flex flex-col  gap-y-2'>
       <div className='flex justify-between items-center p-4 border-b mb-5'>
         <div>
-          <h1 className='text-3xl font-bold'>Categorias</h1>
+          <h1 className='text-3xl font-bold uppercase'>{t('categories')}</h1>
         </div>
         <div className='flex gap-4'>
-          <Link
-            className='bg-blue-700/90 text-white hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center'
-            to='/categories/create'
-          >
-            <svg
-              data-slot='icon'
-              className='w-4 h-4'
-              fill='currentColor'
-              strokeWidth='1.5'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-              aria-hidden='true'
-            >
-              <path
-                clipRule='evenodd'
-                fillRule='evenodd'
-                d='M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z'
-              />
-            </svg>
-          </Link>
+          <ButtonLinkCircle path='/categories/create'>
+            <PlusIcon className='size-6' />
+          </ButtonLinkCircle>
         </div>
       </div>
 
