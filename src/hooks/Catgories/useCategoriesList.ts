@@ -1,20 +1,17 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-  IParentsCategories,
-  type ICategorie,
-  type ICatogoriesResponse
+  DefaultCategory
 } from '../../abstraction/Interfaces/ICategories'
-import { GetCategories, GetParentsService } from '../../services/Categories'
+import { GetCategoriesService, GetParentsService } from '../../services/Categories'
 interface Props {
   page: number
   search: string
 }
 
 export const useCategoriesList = () => {
-  const [categories, setCategories] = useState<ICategorie[]>([])
-  const [parentCategories, setParentCategories] = useState<IParentsCategories[]>([])
+  const [categories, setCategories] = useState<DefaultCategory[]>([])
+  const [parentCategories, setParentCategories] = useState<DefaultCategory[]>([])
   const [loading, setLoading] = useState<boolean>(false)
-
   const [pages, setPages] = useState<number>(0)
 
   const previousSearch = useRef('null')
@@ -28,10 +25,7 @@ export const useCategoriesList = () => {
     try {
       previousSearch.current = search
       previousPage.current = newPage
-      const { totalPages, data }: ICatogoriesResponse = await GetCategories({
-        page: newPage,
-        search
-      })
+      const { totalPages, data } = await GetCategoriesService({page: newPage,search})
       setCategories(data)
       setPages(totalPages)
       setLoading(false)

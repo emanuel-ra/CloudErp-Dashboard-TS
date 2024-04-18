@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { ICatogoriesResponse, IParentsCategories, NewCategoryProps, ResponseNewCategory } from '../abstraction/Interfaces/ICategories'
+import { CategoryPaginate, CreateCategory, DefaultCategory, ResponseNewCategory } from '../abstraction/Interfaces/ICategories'
 import { API_URL, ENDPOINT_CATEGORIES } from '../setup/constants'
 
 interface ListProps {
@@ -7,12 +7,12 @@ interface ListProps {
   search: string
 }
 
-export async function GetCategories ({
+export async function GetCategoriesService ({
   page,
   search
-}: ListProps): Promise<ICatogoriesResponse> {
+}: ListProps): Promise<CategoryPaginate> {
   try {
-    const response: AxiosResponse<ICatogoriesResponse> = await axios.post(
+    const response: AxiosResponse<CategoryPaginate> = await axios.post(
             `${API_URL}/V1${ENDPOINT_CATEGORIES}/List`,
             {
               page,
@@ -32,7 +32,7 @@ export async function GetCategories ({
 
 export async function GetParentsService(){
   try{
-    const response: AxiosResponse<IParentsCategories[]> = await axios.get(
+    const response: AxiosResponse<DefaultCategory[]> = await axios.get(
       `${API_URL}/V1${ENDPOINT_CATEGORIES}/List/Parents`,
       {
         headers: {
@@ -48,7 +48,7 @@ export async function GetParentsService(){
 
 
 
-export async function CreateCategoryService (props: NewCategoryProps): Promise<AxiosResponse<ResponseNewCategory>> {
+export async function CreateCategoryService (props: CreateCategory): Promise<AxiosResponse<ResponseNewCategory>> {
   try {
     const response: AxiosResponse = await axios.post(
         `${API_URL}/V1${ENDPOINT_CATEGORIES}/create`,

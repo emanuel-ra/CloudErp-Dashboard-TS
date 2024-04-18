@@ -1,15 +1,27 @@
-export interface ICatogoriesResponse {
+//* DEFAULT ESTRUCTURE OF THE CATEGORY
+export interface DefaultCategory {
+  id: number;
+  name: string;
+  statusId: number;
+  statusName: string;
+  isEnableEcommerce: number;
+}
+
+// * THI INTERFACE IS USED FOR PAGINATED PRODUCTS 
+export interface CategoryPaginate {
   page: number
   totalPages: number
   sizePage: number
-  data: ICategorie[]
+  data: DefaultCategory[]
 }
 
-export interface NewCategoryProps {
+export interface CreateCategory{
   name:string
   parentId:number
   isEnableEcommerce:number
 }
+/// REMPLACE THIS 
+
 export interface ResponseNewCategory {
   id: number;
   parentId: number | null;
@@ -25,32 +37,6 @@ export interface ResponseNewCategory {
   user: any;
   children: any;
   parentCategory: any;
-}
-
-export interface ICategorie {
-  id: number
-  name: string
-  statusId: number
-  statusName: string
-}
-
-/// TODO REMOVE THIS INTERFACE 
-export interface ICategorieNew {
-  parentId: number
-  name: string
-  Logo: string
-  isEnableEccomerce: number
-  statusId: number
-
-}
-
-
-
-
-
-export interface IParentsCategories {
-  id:number
-  name:string
 }
 
 export enum Status {

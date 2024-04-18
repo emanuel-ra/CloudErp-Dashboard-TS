@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Card } from '../../components/Card'
-import { useCategoriesList } from '../../hooks/Catgories/useCategoriesList'
-import { useTranslation } from 'react-i18next'
-import { Table } from '../../components/Tables/Table'
-import { Thead } from '../../components/Tables/Thead'
-import { TableBody } from '../../components/Tables/TableBody'
 import { BadgeGreen, BadgeRed } from '../../components/Span/Badges'
+import { Table } from '../../components/Tables/Table'
+import { TableBody } from '../../components/Tables/TableBody'
+import { Thead } from '../../components/Tables/Thead'
+import { useCategoriesList } from '../../hooks/Catgories/useCategoriesList'
 
+import 'sweetalert2/dist/sweetalert2.css'
+import { Pagination } from '../../components/Pagination/Pagination'
 import { TableCell } from '../../components/Tables/TableCell'
 import { TableHeadCell } from '../../components/Tables/TableHeadCell'
-import { Pagination } from '../../components/Pagination/Pagination'
-import 'sweetalert2/dist/sweetalert2.css'
 
 export const CategoriesPage = () => {
   const [page, setPage] = useState<number>(0)
@@ -48,7 +48,11 @@ export const CategoriesPage = () => {
               xmlns='http://www.w3.org/2000/svg'
               aria-hidden='true'
             >
-              <path clip-rule='evenodd' fill-rule='evenodd' d='M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z' />
+              <path
+                clipRule='evenodd'
+                fillRule='evenodd'
+                d='M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z'
+              />
             </svg>
           </Link>
         </div>
@@ -60,16 +64,27 @@ export const CategoriesPage = () => {
             <TableHeadCell>{t('ID')}</TableHeadCell>
             <TableHeadCell>{t('Nombre')}</TableHeadCell>
             <TableHeadCell>{t('Estatus')}</TableHeadCell>
+            <TableHeadCell>{t('Website')}</TableHeadCell>
           </tr>
         </Thead>
         <TableBody>
           {categories.map((item) => (
             <tr key={item.id}>
-
               <TableCell className='text-center'>{item.id}</TableCell>
               <TableCell className='text-center'>{item.name}</TableCell>
               <TableCell className='text-center'>
-                {item.statusId === 1 ? <BadgeGreen children={item.statusName} /> : <BadgeRed children={item.statusName} />}
+                {item.statusId === 1 ? (
+                  <BadgeGreen children={item.statusName} />
+                ) : (
+                  <BadgeRed children={item.statusName} />
+                )}
+              </TableCell>
+              <TableCell className='text-center'>
+                {item.isEnableEcommerce === 1 ? (
+                  <BadgeGreen children={`Si`} />
+                ) : (
+                  <BadgeRed children={`No`} />
+                )}
               </TableCell>
             </tr>
           ))}
@@ -82,6 +97,5 @@ export const CategoriesPage = () => {
         setPageIndex={handlePage}
       />
     </Card>
-
   )
 }

@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { NewCategoryProps } from '../../abstraction/Interfaces/ICategories'
+import { CreateCategory } from '../../abstraction/Interfaces/ICategories'
 import { CreateCategoryService } from '../../services/Categories'
 
 
@@ -7,7 +7,7 @@ import { CreateCategoryService } from '../../services/Categories'
 export const useCategoriesCreate = () => {
   const [loading, setLoading] = useState<boolean>(false)
 
-  const createCategories = useCallback(async (props: NewCategoryProps):Promise<boolean> => {
+  const createCategories = useCallback(async (props: CreateCategory):Promise<boolean> => {
     setLoading(true)
     try {   
       const response = await CreateCategoryService(props)
