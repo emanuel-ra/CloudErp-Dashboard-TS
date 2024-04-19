@@ -1,6 +1,8 @@
+import { PlusIcon } from '@heroicons/react/solid'
 import { useEffect, useId, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../../components/Buttons/Button'
+import { ButtonLinkCircle } from '../../components/Buttons/ButtonLinkCircle'
 import { Card } from '../../components/Card'
 import { Dropdown } from '../../components/Dropdown'
 import { DropdownGroup } from '../../components/Dropdown/DropdownGroup'
@@ -41,8 +43,13 @@ export const ProductsPage = () => {
   }, [page])
 
   return (
-    <Card className='grow flex flex-col  gap-y-2'>
-      <h1>List of Products</h1>
+    <Card className='grow flex flex-col gap-y-2'>
+      <div className='flex justify-between'>
+        <h1>List of Products</h1>
+        <ButtonLinkCircle path='/products/create'>
+          <PlusIcon className='size-6' />
+        </ButtonLinkCircle>
+      </div>
       <div className='flex gap-2'>
         <div className='grow'>
           <TextInput

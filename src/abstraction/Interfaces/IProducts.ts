@@ -50,3 +50,11 @@ export interface Image {
     updatedAt: string;
     product: any;
 }
+
+export interface ProductsListPrice{
+    id: number;
+    name: string;
+    currency: string;
+    createdAt: string;
+    updatedAt: string;
+}

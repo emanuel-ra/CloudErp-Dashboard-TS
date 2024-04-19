@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import { UploadImages } from "../../services/Products"
+import { UploadImages } from "../../services/products/Products"
 
 interface Props {
     id:number 

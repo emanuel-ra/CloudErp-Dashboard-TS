@@ -1,9 +1,9 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-  type IProduct,
-  type IProductResponse
+    type IProduct,
+    type IProductResponse
 } from '../../abstraction/Interfaces/IProducts'
-import { GetProducts } from '../../services/Products'
+import { GetProducts } from '../../services/products/Products'
 interface Props {
   page: number
   search: string

@@ -6,6 +6,8 @@ interface Props {
   placeholder?: string
   error?: boolean
   errorMessage?: string
+  className?: string
+  value?: string
 }
 
 interface InpProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -19,15 +21,16 @@ interface InpProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const TextInput = (props: Props) => {
-  const { id, name, placeholder, error, errorMessage } = props
+  const { id, name, placeholder, error, errorMessage, className, value } = props
   return (
     <div className='flex flex-col gap-y-2'>
       <input
         type='text'
-        className='w-full lg:min-h-11 py-1 px-2 rounded border-[1px] text-slate-900 bg-white dark:bg-gray-900 dark:text-white dark:border-white/90 capitalize '
+        className={`w-full lg:min-h-11 py-1 px-2 rounded border-[1px] text-slate-900 bg-white dark:bg-gray-900 dark:text-white dark:border-white/90 ${className}`}
         name={name}
         id={id}
         placeholder={placeholder}
+        value={value}
       />
       {error && <small className='text-red-600 px-2'>{errorMessage}</small>}
     </div>
@@ -63,7 +66,6 @@ export const InputModalL = (props: InpProps) => {
         placeholder={placeholder}
         defaultValue={value}
         {...rest}
-
       />
       {error && <small className='text-red-600 px-2'>{errorMessage}</small>}
     </div>

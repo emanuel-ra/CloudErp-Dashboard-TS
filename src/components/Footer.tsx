@@ -8,11 +8,11 @@ export const Footer = () => {
           className='font-semibold hover:text-slate-700 dark:hover:text-white'
           href='#'
         >
-          Massive Home - IT
+          Massive Home - TI
         </a>
         .
       </span>
-      <span>Environment:{ENVIRONMENT_MODE}</span>
+      <span className='font-semibold'>Environment: {ENVIRONMENT_MODE}</span>
     </footer>
   )
 }
