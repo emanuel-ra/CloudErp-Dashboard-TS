@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
-import { IProductResponse } from '../abstraction/Interfaces/IProducts'
-import { API_URL, ENDPOINT_PRODUCTS, ENDPOINT_PRODUCTS_IMAGES } from '../setup/constants'
+import { IProductResponse } from '../../abstraction/Interfaces/IProducts'
+import { API_URL, ENDPOINT_PRODUCTS, ENDPOINT_PRODUCTS_IMAGES } from '../../setup/constants'
 interface ListProps {
   page: number
   search: string
