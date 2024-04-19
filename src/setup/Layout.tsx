@@ -8,19 +8,15 @@ export const Layout = () => {
   const theme = useThemeStore((state) => state.theme)
   return (
     <div data-mode={theme}>
-      <div
-        className='main-wrapper min-h-dvh bg-gradient-to-b bg-slate-300 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800'
-      >
+      <div className='main-wrapper min-h-dvh bg-gradient-to-b bg-slate-300 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800'>
         <Header />
 
         <SideNavBar />
 
-        <main
-          className='[grid-area:main] h-full flex flex-col justify-between '
-        >
+        <main className='[grid-area:main] h-full flex flex-col justify-between '>
           <Outlet />
-          <Footer />
         </main>
+        <Footer />
       </div>
     </div>
   )
