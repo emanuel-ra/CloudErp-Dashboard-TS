@@ -7,7 +7,7 @@ import 'sweetalert2/dist/sweetalert2.css'
 import { ButtonCircle } from '../../components/Buttons/ButtonCircle'
 import { ButtonLinkCircle } from '../../components/Buttons/ButtonLinkCircle'
 import { Card } from '../../components/Card'
-import { SimpleCheckbox } from '../../components/Checkboxes/SimpleCheckbox'
+import { SwitchCheckbox } from '../../components/Checkboxes/SwitchCheckbox'
 import { TextInput } from '../../components/Inputs/TextInput'
 import { SimpleSelect } from '../../components/Selects/SimpleSelect'
 import { useCategoriesCreate } from '../../hooks/Catgories/useCategoriesCreate'
@@ -116,7 +116,7 @@ export const CategoriesNewPage = () => {
           </div>
 
           <div className='w-full flex gap-x-2 items-center'>
-            <SimpleCheckbox id='isEnableEcommerce' />
+            <SwitchCheckbox id='isEnableEcommerce' />
             <span className='capitalize'>{t('website')}</span>
           </div>
         </div>

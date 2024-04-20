@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { CategoryPaginate, CreateCategory, DefaultCategory, ResponseNewCategory } from '../abstraction/Interfaces/ICategories'
+import { CategoriesWithChildren, CategoryPaginate, CreateCategory, DefaultCategory } from '../abstraction/Interfaces/ICategories'
 import { API_URL, ENDPOINT_CATEGORIES } from '../setup/constants'
 
 interface ListProps {
@@ -46,9 +46,25 @@ export async function GetParentsService(){
   }
 }
 
+export async function GetCategoriesAndChildrenService(){
+  try{
+    const response: AxiosResponse<CategoriesWithChildren[]> = await axios.get(
+      `${API_URL}/V1${ENDPOINT_CATEGORIES}/List`,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+    return response.data
+  }catch (error) {
+    throw error
+  }
+}
 
 
-export async function CreateCategoryService (props: CreateCategory): Promise<AxiosResponse<ResponseNewCategory>> {
+
+export async function CreateCategoryService (props: CreateCategory): Promise<AxiosResponse<CategoriesWithChildren>> {
   try {
     const response: AxiosResponse = await axios.post(
         `${API_URL}/V1${ENDPOINT_CATEGORIES}/create`,

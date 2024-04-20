@@ -1,8 +1,9 @@
 import { useCallback, useRef, useState } from 'react'
 import {
+  CategoriesWithChildren,
   DefaultCategory
 } from '../../abstraction/Interfaces/ICategories'
-import { GetCategoriesService, GetParentsService } from '../../services/Categories'
+import { GetCategoriesAndChildrenService, GetCategoriesService, GetParentsService } from '../../services/Categories'
 interface Props {
   page: number
   search: string
@@ -11,6 +12,7 @@ interface Props {
 export const useCategoriesList = () => {
   const [categories, setCategories] = useState<DefaultCategory[]>([])
   const [parentCategories, setParentCategories] = useState<DefaultCategory[]>([])
+  const [categoriesWithChildren, setCategoriesWithChildren] = useState<CategoriesWithChildren[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [pages, setPages] = useState<number>(0)
 
@@ -45,5 +47,14 @@ export const useCategoriesList = () => {
     }
   },[])
 
-  return { categories, getCategories, loading, pages, getParents,  parents:parentCategories }
+  const getCategoriesWithChildren = useCallback( async()=>{
+    try{
+      const data = await GetCategoriesAndChildrenService();
+      setCategoriesWithChildren(data)
+    }catch (e) {
+      throw e
+    }
+  },[])
+
+  return { categories, getCategories, loading, pages, getParents,  parents:parentCategories, categoriesWithChildren,getCategoriesWithChildren }
 }

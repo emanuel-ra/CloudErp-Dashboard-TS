@@ -15,14 +15,7 @@ export interface CategoryPaginate {
   data: DefaultCategory[]
 }
 
-export interface CreateCategory{
-  name:string
-  parentId:number
-  isEnableEcommerce:number
-}
-/// REMPLACE THIS 
-
-export interface ResponseNewCategory {
+export interface CategoriesWithChildren {
   id: number;
   parentId: number | null;
   name: string;
@@ -35,9 +28,18 @@ export interface ResponseNewCategory {
   updatedAt: string;
   catStatus: any;
   user: any;
-  children: any;
-  parentCategory: any;
+  children: CategoriesWithChildren[];
+  parentCategory: CategoriesWithChildren[];
 }
+
+export interface CreateCategory{
+  name:string
+  parentId:number
+  isEnableEcommerce:number
+}
+/// REMPLACE THIS 
+
+
 
 export enum Status {
   Activo = 'Activo',

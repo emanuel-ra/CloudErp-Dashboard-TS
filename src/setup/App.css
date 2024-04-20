@@ -42,9 +42,9 @@
   .main-wrapper {
     display: grid;
     grid-template-areas:
-      "aside header"
-      "aside main"
-      "aside foot";
+      'aside header'
+      'aside main'
+      'aside foot';
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr 50px;
   }
@@ -52,12 +52,39 @@
     .main-wrapper {
       display: grid;
       grid-template-areas:
-        "header"
+        'header'
         /* "aside", */
-        "main"
-        "foot";
+        'main'
+        'foot';
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr;
     }
   }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
