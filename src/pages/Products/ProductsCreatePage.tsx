@@ -7,15 +7,18 @@ import { SimpleCheckbox } from '../../components/Checkboxes/SimpleCheckbox'
 import { TextAreaInput } from '../../components/Inputs/TextAreaInput'
 import { TextInput } from '../../components/Inputs/TextInput'
 import { SimpleSelect } from '../../components/Selects/SimpleSelect'
+import { useBrandList } from '../../hooks/Brands/useBrandList'
 import { useProductsListPrice } from '../../hooks/Products/useProductsListPrice'
 
 export const ProductsCreatePage = () => {
   const { t } = useTranslation()
   const { priceList, getPriceList } = useProductsListPrice()
+  const { brand, getAllBrands } = useBrandList()
 
   useEffect(() => {
     // GET LIST OF PRICES AVAILABLE
     getPriceList()
+    getAllBrands()
   }, [])
 
   const handleClick = () => {
@@ -86,7 +89,22 @@ export const ProductsCreatePage = () => {
           />
         </div>
 
-        <div className='w-full lg:w-[15%]'>
+        <div className='w-full lg:w-[20%]'>
+          <label htmlFor='satCode'>{t('brand')}</label>
+          <SimpleSelect>
+            <option value='0'>Select any brand</option>
+            {brand?.map((b) => (
+              <option
+                key={b.id}
+                value={b.id}
+              >
+                {b.name}
+              </option>
+            ))}
+          </SimpleSelect>
+        </div>
+
+        <div className='w-full lg:w-[20%]'>
           <label htmlFor='barcode'>{t('barcode')}</label>
           <TextInput
             id='barcode'
@@ -95,7 +113,7 @@ export const ProductsCreatePage = () => {
           />
         </div>
 
-        <div className='w-full lg:w-[15%]'>
+        <div className='w-full lg:w-[20%]'>
           <label htmlFor='satCode'>{t('sat code')}</label>
           <TextInput
             id='satCode'
@@ -104,7 +122,7 @@ export const ProductsCreatePage = () => {
           />
         </div>
 
-        <div className='w-full lg:w-[15%]'>
+        <div className='w-full lg:w-[20%]'>
           <label htmlFor='satCode'>{t('sat unit')}</label>
           <TextInput
             id='satUnit'
@@ -112,11 +130,32 @@ export const ProductsCreatePage = () => {
             placeholder={t('type the model')}
           />
         </div>
-        <div className='w-full lg:w-[15%]'>
-          <label htmlFor='satCode'>{t('brand')}</label>
-          <SimpleSelect>
-            <option value='0'>Select any brand</option>
-          </SimpleSelect>
+
+        <div className='w-full lg:w-[20%]'>
+          <label htmlFor='satCode'>{t('width')}</label>
+          <TextInput
+            id='satUnit'
+            name='satUnit'
+            placeholder={t('type the model')}
+          />
+        </div>
+
+        <div className='w-full lg:w-[20%]'>
+          <label htmlFor='satCode'>{t('height')}</label>
+          <TextInput
+            id='satUnit'
+            name='satUnit'
+            placeholder={t('type the model')}
+          />
+        </div>
+
+        <div className='w-full lg:w-[20%]'>
+          <label htmlFor='satCode'>{t('weigth')}</label>
+          <TextInput
+            id='satUnit'
+            name='satUnit'
+            placeholder={t('type the model')}
+          />
         </div>
 
         <div className='w-full flex items-center justify-center gap-x-2 font-semibold lg:w-[15%]'>
