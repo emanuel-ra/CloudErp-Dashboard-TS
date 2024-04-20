@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
+import { IBrand, IBrandResponse } from '../abstraction/Interfaces/IBrand'
 import { API_URL, ENDPOINT_BRAND } from '../setup/constants'
-import { IBrandResponse } from '../abstraction/Interfaces/IBrand'
 
 interface ListProps {
   page: number
@@ -13,7 +13,7 @@ export async function GetBrand ({
 }: ListProps): Promise<IBrandResponse> {
   try {
     const response: AxiosResponse<IBrandResponse> = await axios.post(
-            `${API_URL}/V1${ENDPOINT_BRAND}`,
+            `${API_URL}/V1${ENDPOINT_BRAND}/GetByPage`,
             {
               page,
               search
@@ -25,6 +25,27 @@ export async function GetBrand ({
             }
     )
     return response.data
+    
+  } catch (error) {
+    throw error
+  }
+}
+
+export async function GetAllBrand (search?:string): Promise<IBrand[]> {
+  try {
+    const response: AxiosResponse<IBrand[]> = await axios.post(
+            `${API_URL}/V1${ENDPOINT_BRAND}`,
+            {              
+              search
+            },
+            {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }
+    )
+    return response.data
+    
   } catch (error) {
     throw error
   }

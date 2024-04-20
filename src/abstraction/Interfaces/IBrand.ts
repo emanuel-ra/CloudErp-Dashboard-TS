@@ -6,10 +6,13 @@ export interface IBrandResponse {
 }
 
 export interface IBrand {
-  id: number
-  name: string
-  statusId: number
-  statusName: string
+  id: number;
+  code: string;
+  name: string;
+  logo: string;
+  isEnableEccomerce: boolean;
+  statusId: number;
+  statusName: string;
 }
 
 export interface IBrandNew {

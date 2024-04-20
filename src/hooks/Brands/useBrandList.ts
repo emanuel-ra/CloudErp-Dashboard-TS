@@ -1,9 +1,8 @@
 import { useCallback, useRef, useState } from 'react'
 import {
-  type IBrand,
-  type IBrandResponse
+  type IBrand
 } from '../../abstraction/Interfaces/IBrand'
-import { GetBrand } from '../../services/Brand'
+import { GetAllBrand, GetBrand } from '../../services/Brand'
 interface Props {
   page: number
   search: string
@@ -26,10 +25,9 @@ export const useBrandList = () => {
     try {
       previousSearch.current = search
       previousPage.current = newPage
-      const { totalPages, data }: IBrandResponse = await GetBrand({
-        page: newPage,
-        search
-      })
+      const { totalPages, data } = await GetBrand({page: newPage,search})
+      
+      console.log(data)
       setBrand(data)
       setPages(totalPages)
       setLoading(false)
@@ -40,5 +38,11 @@ export const useBrandList = () => {
     }
   }, [])
 
-  return { brand, getBrand, loading, pages }
+  const getAllBrands = useCallback( async() => {
+    const result:IBrand[] = await GetAllBrand("")
+    setBrand(result)
+  },[])
+
+  
+  return { brand, getBrand, loading, pages,getAllBrands }
 }

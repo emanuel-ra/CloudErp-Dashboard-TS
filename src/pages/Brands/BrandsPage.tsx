@@ -1,17 +1,17 @@
+import { PlusIcon } from '@heroicons/react/solid'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Card } from '../../components/Card'
-import { useBrandList } from '../../hooks/Brands/useBrandList'
 import { useTranslation } from 'react-i18next'
-import { Table } from '../../components/Tables/Table'
-import { Thead } from '../../components/Tables/Thead'
-import { TableBody } from '../../components/Tables/TableBody'
+import 'sweetalert2/dist/sweetalert2.css'
+import { ButtonLinkCircle } from '../../components/Buttons/ButtonLinkCircle'
+import { Card } from '../../components/Card'
+import { Pagination } from '../../components/Pagination/Pagination'
 import { BadgeGreen, BadgeRed } from '../../components/Span/Badges'
-
+import { Table } from '../../components/Tables/Table'
+import { TableBody } from '../../components/Tables/TableBody'
 import { TableCell } from '../../components/Tables/TableCell'
 import { TableHeadCell } from '../../components/Tables/TableHeadCell'
-import { Pagination } from '../../components/Pagination/Pagination'
-import 'sweetalert2/dist/sweetalert2.css'
+import { Thead } from '../../components/Tables/Thead'
+import { useBrandList } from '../../hooks/Brands/useBrandList'
 
 export const BrandsPage = () => {
   const [page, setPage] = useState<number>(0)
@@ -35,22 +35,9 @@ export const BrandsPage = () => {
           <h1 className='text-3xl font-bold'>Marcas</h1>
         </div>
         <div className='flex gap-4'>
-          <Link
-            className='bg-blue-700/90 text-white hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center'
-            to='/categories/create'
-          >
-            <svg
-              data-slot='icon'
-              className='w-4 h-4'
-              fill='currentColor'
-              strokeWidth='1.5'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-              aria-hidden='true'
-            >
-              <path clip-rule='evenodd' fill-rule='evenodd' d='M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z' />
-            </svg>
-          </Link>
+          <ButtonLinkCircle path='/categories/create'>
+            <PlusIcon className='size-6' />
+          </ButtonLinkCircle>
         </div>
       </div>
 
@@ -63,13 +50,16 @@ export const BrandsPage = () => {
           </tr>
         </Thead>
         <TableBody>
-          {brand.map((item) => (
+          {brand?.map((item) => (
             <tr key={item.id}>
-
               <TableCell className='text-center'>{item.id}</TableCell>
               <TableCell className='text-center'>{item.name}</TableCell>
               <TableCell className='text-center'>
-                {item.statusId === 1 ? <BadgeGreen children={item.statusName} /> : <BadgeRed children={item.statusName} />}
+                {item.statusId === 1 ? (
+                  <BadgeGreen children={item.statusName} />
+                ) : (
+                  <BadgeRed children={item.statusName} />
+                )}
               </TableCell>
             </tr>
           ))}
@@ -82,6 +72,5 @@ export const BrandsPage = () => {
         setPageIndex={handlePage}
       />
     </Card>
-
   )
 }
